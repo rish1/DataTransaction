@@ -1,0 +1,11 @@
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\DataTransaction.dll.config
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\DataTransaction.dll
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\DataTransaction.pdb
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\EntityFramework.dll
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\EntityFramework.xml
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\obj\Debug\DataTransaction.dll
+C:\Users\E-5\Documents\Visual Studio 2015\Projects\DataTransaction\DataTransaction\obj\Debug\DataTransaction.pdb
+C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\Newtonsoft.Json.dll
+C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\Newtonsoft.Json.xml

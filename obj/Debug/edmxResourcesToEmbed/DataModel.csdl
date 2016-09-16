@@ -1,0 +1,1677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ef_manager_newModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ef_manager_newEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ef_manager_newModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ef_manager_newModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Admins" EntityType="ef_manager_newModel.Admin" />
+    <EntitySet Name="AppModules" EntityType="ef_manager_newModel.AppModule" />
+    <EntitySet Name="Balances" EntityType="ef_manager_newModel.Balance" />
+    <EntitySet Name="Balance_Types" EntityType="ef_manager_newModel.Balance_Types" />
+    <EntitySet Name="Base_Symbol" EntityType="ef_manager_newModel.Base_Symbol" />
+    <EntitySet Name="Cities" EntityType="ef_manager_newModel.City" />
+    <EntitySet Name="Commission_Types" EntityType="ef_manager_newModel.Commission_Types" />
+    <EntitySet Name="ContractKinds" EntityType="ef_manager_newModel.ContractKind" />
+    <EntitySet Name="Countries" EntityType="ef_manager_newModel.Country" />
+    <EntitySet Name="Currencies" EntityType="ef_manager_newModel.Currency" />
+    <EntitySet Name="DOMSources" EntityType="ef_manager_newModel.DOMSource" />
+    <EntitySet Name="DOMSymbols" EntityType="ef_manager_newModel.DOMSymbol" />
+    <EntitySet Name="Exchanges" EntityType="ef_manager_newModel.Exchange" />
+    <EntitySet Name="ExecutionTypes" EntityType="ef_manager_newModel.ExecutionType" />
+    <EntitySet Name="FeedSources" EntityType="ef_manager_newModel.FeedSource" />
+    <EntitySet Name="FeedSymbols" EntityType="ef_manager_newModel.FeedSymbol" />
+    <EntitySet Name="FrozenBalances" EntityType="ef_manager_newModel.FrozenBalance" />
+    <EntitySet Name="History_OrderBook" EntityType="ef_manager_newModel.History_OrderBook" />
+    <EntitySet Name="History_Source" EntityType="ef_manager_newModel.History_Source" />
+    <EntitySet Name="History_Transactions" EntityType="ef_manager_newModel.History_Transactions" />
+    <EntitySet Name="HistorySymbols" EntityType="ef_manager_newModel.HistorySymbol" />
+    <EntitySet Name="Holidays" EntityType="ef_manager_newModel.Holiday" />
+    <EntitySet Name="Liquidation_Types" EntityType="ef_manager_newModel.Liquidation_Types" />
+    <EntitySet Name="Margin_Types" EntityType="ef_manager_newModel.Margin_Types" />
+    <EntitySet Name="ModulePermissions" EntityType="ef_manager_newModel.ModulePermission" />
+    <EntitySet Name="Offices" EntityType="ef_manager_newModel.Office" />
+    <EntitySet Name="Order_Status" EntityType="ef_manager_newModel.Order_Status" />
+    <EntitySet Name="Order_Status_History" EntityType="ef_manager_newModel.Order_Status_History" />
+    <EntitySet Name="Order_Types" EntityType="ef_manager_newModel.Order_Types" />
+    <EntitySet Name="OrderBooks" EntityType="ef_manager_newModel.OrderBook" />
+    <EntitySet Name="PlatformPermissions" EntityType="ef_manager_newModel.PlatformPermission" />
+    <EntitySet Name="Platforms" EntityType="ef_manager_newModel.Platform" />
+    <EntitySet Name="Roles" EntityType="ef_manager_newModel.Role" />
+    <EntitySet Name="Sectors" EntityType="ef_manager_newModel.Sector" />
+    <EntitySet Name="Segments" EntityType="ef_manager_newModel.Segment" />
+    <EntitySet Name="Segment_Permissions" EntityType="ef_manager_newModel.Segment_Permissions" />
+    <EntitySet Name="States" EntityType="ef_manager_newModel.State" />
+    <EntitySet Name="Symbols" EntityType="ef_manager_newModel.Symbol" />
+    <EntitySet Name="sysdiagrams" EntityType="ef_manager_newModel.sysdiagram" />
+    <EntitySet Name="Transaction_Types" EntityType="ef_manager_newModel.Transaction_Types" />
+    <EntitySet Name="Transactions" EntityType="ef_manager_newModel.Transaction" />
+    <EntitySet Name="Users" EntityType="ef_manager_newModel.User" />
+    <AssociationSet Name="FK_Admins_Roles" Association="ef_manager_newModel.FK_Admins_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Admin" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModulePermissions_AppModules" Association="ef_manager_newModel.FK_ModulePermissions_AppModules">
+      <End Role="AppModule" EntitySet="AppModules" />
+      <End Role="ModulePermission" EntitySet="ModulePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Balance_Segment" Association="ef_manager_newModel.FK_Balance_Segment">
+      <End Role="Segment" EntitySet="Segments" />
+      <End Role="Balance" EntitySet="Balances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Balance_Users" Association="ef_manager_newModel.FK_Balance_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Balance" EntitySet="Balances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Balance_Types" Association="ef_manager_newModel.FK_Users_Balance_Types">
+      <End Role="Balance_Types" EntitySet="Balance_Types" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_Commission_Types" Association="ef_manager_newModel.FK_Base_Symbol_Commission_Types">
+      <End Role="Commission_Types" EntitySet="Commission_Types" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_ContractKind" Association="ef_manager_newModel.FK_Base_Symbol_ContractKind">
+      <End Role="ContractKind" EntitySet="ContractKinds" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_Currency" Association="ef_manager_newModel.FK_Base_Symbol_Currency">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_Exchange" Association="ef_manager_newModel.FK_Base_Symbol_Exchange">
+      <End Role="Exchange" EntitySet="Exchanges" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_Margin_Types" Association="ef_manager_newModel.FK_Base_Symbol_Margin_Types">
+      <End Role="Margin_Types" EntitySet="Margin_Types" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_Sector" Association="ef_manager_newModel.FK_Base_Symbol_Sector">
+      <End Role="Sector" EntitySet="Sectors" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Symbol_Segment" Association="ef_manager_newModel.FK_Base_Symbol_Segment">
+      <End Role="Segment" EntitySet="Segments" />
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Symbols_Base_Symbol" Association="ef_manager_newModel.FK_Symbols_Base_Symbol">
+      <End Role="Base_Symbol" EntitySet="Base_Symbol" />
+      <End Role="Symbol" EntitySet="Symbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="ef_manager_newModel.FK_City_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_City" Association="ef_manager_newModel.FK_Users_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Segment_Permissions_Commission_Types" Association="ef_manager_newModel.FK_Segment_Permissions_Commission_Types">
+      <End Role="Commission_Types" EntitySet="Commission_Types" />
+      <End Role="Segment_Permissions" EntitySet="Segment_Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Country" Association="ef_manager_newModel.FK_Exchange_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Exchange" EntitySet="Exchanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="ef_manager_newModel.FK_State_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Currency" Association="ef_manager_newModel.FK_Users_Currency">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOMSymbols_DOMSource" Association="ef_manager_newModel.FK_DOMSymbols_DOMSource">
+      <End Role="DOMSource" EntitySet="DOMSources" />
+      <End Role="DOMSymbol" EntitySet="DOMSymbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOMSymbols_Symbols" Association="ef_manager_newModel.FK_DOMSymbols_Symbols">
+      <End Role="Symbol" EntitySet="Symbols" />
+      <End Role="DOMSymbol" EntitySet="DOMSymbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Segment_Exchange" Association="ef_manager_newModel.FK_Segment_Exchange">
+      <End Role="Exchange" EntitySet="Exchanges" />
+      <End Role="Segment" EntitySet="Segments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Symbols_ExecutionTypes" Association="ef_manager_newModel.FK_Symbols_ExecutionTypes">
+      <End Role="ExecutionType" EntitySet="ExecutionTypes" />
+      <End Role="Symbol" EntitySet="Symbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ExecutionTypes" Association="ef_manager_newModel.FK_Users_ExecutionTypes">
+      <End Role="ExecutionType" EntitySet="ExecutionTypes" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedSymbols_FeedSource" Association="ef_manager_newModel.FK_FeedSymbols_FeedSource">
+      <End Role="FeedSource" EntitySet="FeedSources" />
+      <End Role="FeedSymbol" EntitySet="FeedSymbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedSymbols_Symbols" Association="ef_manager_newModel.FK_FeedSymbols_Symbols">
+      <End Role="Symbol" EntitySet="Symbols" />
+      <End Role="FeedSymbol" EntitySet="FeedSymbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FrozenBalances_Symbols" Association="ef_manager_newModel.FK_FrozenBalances_Symbols">
+      <End Role="Symbol" EntitySet="Symbols" />
+      <End Role="FrozenBalance" EntitySet="FrozenBalances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FrozenBalances_Users" Association="ef_manager_newModel.FK_FrozenBalances_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FrozenBalance" EntitySet="FrozenBalances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_OrderBook_History_OrderBook" Association="ef_manager_newModel.FK_History_OrderBook_History_OrderBook">
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+      <End Role="History_OrderBook1" EntitySet="History_OrderBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_OrderBook_Order_Status" Association="ef_manager_newModel.FK_History_OrderBook_Order_Status">
+      <End Role="Order_Status" EntitySet="Order_Status" />
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_OrderBook_Order_Types" Association="ef_manager_newModel.FK_History_OrderBook_Order_Types">
+      <End Role="Order_Types" EntitySet="Order_Types" />
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_OrderBook_Symbols" Association="ef_manager_newModel.FK_History_OrderBook_Symbols">
+      <End Role="Symbol" EntitySet="Symbols" />
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_OrderBook_Users" Association="ef_manager_newModel.FK_History_OrderBook_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Transactions_History_OrderBook" Association="ef_manager_newModel.FK_History_Transactions_History_OrderBook">
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+      <End Role="History_Transactions" EntitySet="History_Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Transactions_History_OrderBook1" Association="ef_manager_newModel.FK_History_Transactions_History_OrderBook1">
+      <End Role="History_OrderBook" EntitySet="History_OrderBook" />
+      <End Role="History_Transactions" EntitySet="History_Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorySymbols_History_Source" Association="ef_manager_newModel.FK_HistorySymbols_History_Source">
+      <End Role="History_Source" EntitySet="History_Source" />
+      <End Role="HistorySymbol" EntitySet="HistorySymbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Transactions_Transaction_Types" Association="ef_manager_newModel.FK_History_Transactions_Transaction_Types">
+      <End Role="Transaction_Types" EntitySet="Transaction_Types" />
+      <End Role="History_Transactions" EntitySet="History_Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Transactions_Users" Association="ef_manager_newModel.FK_History_Transactions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="History_Transactions" EntitySet="History_Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorySymbols_Symbols" Association="ef_manager_newModel.FK_HistorySymbols_Symbols">
+      <End Role="Symbol" EntitySet="Symbols" />
+      <End Role="HistorySymbol" EntitySet="HistorySymbols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Holidays_Segment" Association="ef_manager_newModel.FK_Holidays_Segment">
+      <End Role="Segment" EntitySet="Segments" />
+      <End Role="Holiday" EntitySet="Holidays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Office_Liquidation_Types" Association="ef_manager_newModel.FK_Office_Liquidation_Types">
+      <End Role="Liquidation_Types" EntitySet="Liquidation_Types" />
+      <End Role="Office" EntitySet="Offices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Liquidation_Types" Association="ef_manager_newModel.FK_Users_Liquidation_Types">
+      <End Role="Liquidation_Types" EntitySet="Liquidation_Types" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Segment_Permissions_Margin_Types" Association="ef_manager_newModel.FK_Segment_Permissions_Margin_Types">
+      <End Role="Margin_Types" EntitySet="Margin_Types" />
+      <End Role="Segment_Permissions" EntitySet="Segment_Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModulePermissions_Users" Association="ef_manager_newModel.FK_ModulePermissions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ModulePermission" EntitySet="ModulePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Office" Association="ef_manager_newModel.FK_Users_Office">
+      <End Role="Office" EntitySet="Offices" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Status_History_Order_Status" Association="ef_manager_newModel.FK_Order_Status_History_Order_Status">
+      <End Role="Order_Status" EntitySet="Order_Status" />
+      <End Role="Order_Status_History" EntitySet="Order_Status_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderBook_Order_Status" Association="ef_manager_newModel.FK_OrderBook_Order_Status">
+      <End Role="Order_Status" EntitySet="Order_Status" />
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Status_History_OrderBook" Association="ef_manager_newModel.FK_Order_Status_History_OrderBook">
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+      <End Role="Order_Status_History" EntitySet="Order_Status_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderBook_Order_Types" Association="ef_manager_newModel.FK_OrderBook_Order_Types">
+      <End Role="Order_Types" EntitySet="Order_Types" />
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderBook_OrderBook" Association="ef_manager_newModel.FK_OrderBook_OrderBook">
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+      <End Role="OrderBook1" EntitySet="OrderBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderBook_Symbols" Association="ef_manager_newModel.FK_OrderBook_Symbols">
+      <End Role="Symbol" EntitySet="Symbols" />
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderBook_Users" Association="ef_manager_newModel.FK_OrderBook_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_OrderBook" Association="ef_manager_newModel.FK_Transactions_OrderBook">
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_OrderBook1" Association="ef_manager_newModel.FK_Transactions_OrderBook1">
+      <End Role="OrderBook" EntitySet="OrderBooks" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlatformPermissions_Platforms" Association="ef_manager_newModel.FK_PlatformPermissions_Platforms">
+      <End Role="Platform" EntitySet="Platforms" />
+      <End Role="PlatformPermission" EntitySet="PlatformPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlatformPermissions_Users" Association="ef_manager_newModel.FK_PlatformPermissions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PlatformPermission" EntitySet="PlatformPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Segment_Permissions_Segment" Association="ef_manager_newModel.FK_Segment_Permissions_Segment">
+      <End Role="Segment" EntitySet="Segments" />
+      <End Role="Segment_Permissions" EntitySet="Segment_Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Segment_Permissions_Users" Association="ef_manager_newModel.FK_Segment_Permissions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Segment_Permissions" EntitySet="Segment_Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Transaction_Types" Association="ef_manager_newModel.FK_Transactions_Transaction_Types">
+      <End Role="Transaction_Types" EntitySet="Transaction_Types" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Users" Association="ef_manager_newModel.FK_Transactions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_ID" />
+    </Key>
+    <Property Name="Admin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Role_ID" Type="Int32" Nullable="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="ef_manager_newModel.FK_Admins_Roles" FromRole="Admin" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="AppModule">
+    <Key>
+      <PropertyRef Name="Module_ID" />
+    </Key>
+    <Property Name="Module_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Module_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ModulePermissions" Relationship="ef_manager_newModel.FK_ModulePermissions_AppModules" FromRole="AppModule" ToRole="ModulePermission" />
+  </EntityType>
+  <EntityType Name="Balance">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Segment_ID" Type="Int32" />
+    <Property Name="Balance1" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
+    <Property Name="Frozen_Balance" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
+    <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Segment" Relationship="ef_manager_newModel.FK_Balance_Segment" FromRole="Balance" ToRole="Segment" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_Balance_Users" FromRole="Balance" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Balance_Types">
+    <Key>
+      <PropertyRef Name="Balance_Type_ID" />
+    </Key>
+    <Property Name="Balance_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Balance_Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="ef_manager_newModel.FK_Users_Balance_Types" FromRole="Balance_Types" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Base_Symbol">
+    <Key>
+      <PropertyRef Name="Base_Symbol_ID" />
+    </Key>
+    <Property Name="Base_Symbol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Base_Symbol1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Price_Format" Type="Int32" Nullable="false" />
+    <Property Name="Tick_Size" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PL_Per_Tick" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Contract_Kind_ID" Type="Int32" Nullable="false" />
+    <Property Name="Contract_Size" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Segment_ID" Type="Int32" Nullable="false" />
+    <Property Name="Exchange_ID" Type="Int32" Nullable="false" />
+    <Property Name="Currency_ID" Type="Int32" Nullable="false" />
+    <Property Name="Start_Time" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="End_Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="TimeZone_Offset" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Margin_Type_ID" Type="Int32" />
+    <Property Name="Initial_Margin" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Maintainance_Margin" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Commission_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Commission" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Sector_ID" Type="Int32" Nullable="false" />
+    <Property Name="DevidedBy" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="MultipliedBy" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Commission_Types" Relationship="ef_manager_newModel.FK_Base_Symbol_Commission_Types" FromRole="Base_Symbol" ToRole="Commission_Types" />
+    <NavigationProperty Name="ContractKind" Relationship="ef_manager_newModel.FK_Base_Symbol_ContractKind" FromRole="Base_Symbol" ToRole="ContractKind" />
+    <NavigationProperty Name="Currency" Relationship="ef_manager_newModel.FK_Base_Symbol_Currency" FromRole="Base_Symbol" ToRole="Currency" />
+    <NavigationProperty Name="Exchange" Relationship="ef_manager_newModel.FK_Base_Symbol_Exchange" FromRole="Base_Symbol" ToRole="Exchange" />
+    <NavigationProperty Name="Margin_Types" Relationship="ef_manager_newModel.FK_Base_Symbol_Margin_Types" FromRole="Base_Symbol" ToRole="Margin_Types" />
+    <NavigationProperty Name="Sector" Relationship="ef_manager_newModel.FK_Base_Symbol_Sector" FromRole="Base_Symbol" ToRole="Sector" />
+    <NavigationProperty Name="Segment" Relationship="ef_manager_newModel.FK_Base_Symbol_Segment" FromRole="Base_Symbol" ToRole="Segment" />
+    <NavigationProperty Name="Symbols" Relationship="ef_manager_newModel.FK_Symbols_Base_Symbol" FromRole="Base_Symbol" ToRole="Symbol" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_ID" />
+    </Key>
+    <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State_ID" Type="Int32" Nullable="false" />
+    <Property Name="City_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="State" Relationship="ef_manager_newModel.FK_City_State" FromRole="City" ToRole="State" />
+    <NavigationProperty Name="Users" Relationship="ef_manager_newModel.FK_Users_City" FromRole="City" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Commission_Types">
+    <Key>
+      <PropertyRef Name="Commission_Type_ID" />
+    </Key>
+    <Property Name="Commission_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Commission_Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Commission_Types" FromRole="Commission_Types" ToRole="Base_Symbol" />
+    <NavigationProperty Name="Segment_Permissions" Relationship="ef_manager_newModel.FK_Segment_Permissions_Commission_Types" FromRole="Commission_Types" ToRole="Segment_Permissions" />
+  </EntityType>
+  <EntityType Name="ContractKind">
+    <Key>
+      <PropertyRef Name="Contract_Kind_ID" />
+    </Key>
+    <Property Name="Contract_Kind_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contract_Kind" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_ContractKind" FromRole="ContractKind" ToRole="Base_Symbol" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_ID" />
+    </Key>
+    <Property Name="Country_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country_Code" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="Country_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Exchanges" Relationship="ef_manager_newModel.FK_Exchange_Country" FromRole="Country" ToRole="Exchange" />
+    <NavigationProperty Name="States" Relationship="ef_manager_newModel.FK_State_Country" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Currency_ID" />
+    </Key>
+    <Property Name="Currency_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Currency_Code" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Currency_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Currency" FromRole="Currency" ToRole="Base_Symbol" />
+    <NavigationProperty Name="Users" Relationship="ef_manager_newModel.FK_Users_Currency" FromRole="Currency" ToRole="User" />
+  </EntityType>
+  <EntityType Name="DOMSource">
+    <Key>
+      <PropertyRef Name="DOM_Source_ID" />
+    </Key>
+    <Property Name="DOM_Source_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DOM_Source" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DOM_Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DOMSymbols" Relationship="ef_manager_newModel.FK_DOMSymbols_DOMSource" FromRole="DOMSource" ToRole="DOMSymbol" />
+  </EntityType>
+  <EntityType Name="DOMSymbol">
+    <Key>
+      <PropertyRef Name="DOM_Symbols_ID" />
+    </Key>
+    <Property Name="DOM_Symbols_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="DOM_Symbol" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DOM_Source_ID" Type="Int32" Nullable="false" />
+    <Property Name="DevidedBy" Type="Int32" Nullable="false" />
+    <Property Name="MultipliedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DOMSource" Relationship="ef_manager_newModel.FK_DOMSymbols_DOMSource" FromRole="DOMSymbol" ToRole="DOMSource" />
+    <NavigationProperty Name="Symbol" Relationship="ef_manager_newModel.FK_DOMSymbols_Symbols" FromRole="DOMSymbol" ToRole="Symbol" />
+  </EntityType>
+  <EntityType Name="Exchange">
+    <Key>
+      <PropertyRef Name="Exchange_ID" />
+    </Key>
+    <Property Name="Exchange_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Exchange_Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Exchange_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country_ID" Type="Int32" Nullable="false" />
+    <Property Name="Created_By" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Exchange" FromRole="Exchange" ToRole="Base_Symbol" />
+    <NavigationProperty Name="Country" Relationship="ef_manager_newModel.FK_Exchange_Country" FromRole="Exchange" ToRole="Country" />
+    <NavigationProperty Name="Segments" Relationship="ef_manager_newModel.FK_Segment_Exchange" FromRole="Exchange" ToRole="Segment" />
+  </EntityType>
+  <EntityType Name="ExecutionType">
+    <Key>
+      <PropertyRef Name="ExecutionTypeID" />
+    </Key>
+    <Property Name="ExecutionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExecutionType1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Symbols" Relationship="ef_manager_newModel.FK_Symbols_ExecutionTypes" FromRole="ExecutionType" ToRole="Symbol" />
+    <NavigationProperty Name="Users" Relationship="ef_manager_newModel.FK_Users_ExecutionTypes" FromRole="ExecutionType" ToRole="User" />
+  </EntityType>
+  <EntityType Name="FeedSource">
+    <Key>
+      <PropertyRef Name="Feed_Source_ID" />
+    </Key>
+    <Property Name="Feed_Source_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Feed_Source" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Feed_Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FeedSymbols" Relationship="ef_manager_newModel.FK_FeedSymbols_FeedSource" FromRole="FeedSource" ToRole="FeedSymbol" />
+  </EntityType>
+  <EntityType Name="FeedSymbol">
+    <Key>
+      <PropertyRef Name="Feed_Symbol_ID" />
+    </Key>
+    <Property Name="Feed_Symbol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="Feed_Symbol" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Feed_Source_ID" Type="Int32" Nullable="false" />
+    <Property Name="DevidedBy" Type="Int32" Nullable="false" />
+    <Property Name="MultipliedBy" Type="Int32" Nullable="false" />
+    <Property Name="BidTranslationTicks" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="AskTranslationTicks" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
+    <NavigationProperty Name="FeedSource" Relationship="ef_manager_newModel.FK_FeedSymbols_FeedSource" FromRole="FeedSymbol" ToRole="FeedSource" />
+    <NavigationProperty Name="Symbol" Relationship="ef_manager_newModel.FK_FeedSymbols_Symbols" FromRole="FeedSymbol" ToRole="Symbol" />
+  </EntityType>
+  <EntityType Name="FrozenBalance">
+    <Key>
+      <PropertyRef Name="FozenBalance_ID" />
+    </Key>
+    <Property Name="FozenBalance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsReleased" Type="Byte" Nullable="false" />
+    <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Symbol" Relationship="ef_manager_newModel.FK_FrozenBalances_Symbols" FromRole="FrozenBalance" ToRole="Symbol" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_FrozenBalances_Users" FromRole="FrozenBalance" ToRole="User" />
+  </EntityType>
+  <EntityType Name="History_OrderBook">
+    <Key>
+      <PropertyRef Name="History_Order_ID" />
+    </Key>
+    <Property Name="History_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Order_Side" Type="Boolean" Nullable="false" />
+    <Property Name="Order_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="27" Scale="10" />
+    <Property Name="Order_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Original_Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="History_OrderBook1" Relationship="ef_manager_newModel.FK_History_OrderBook_History_OrderBook" FromRole="History_OrderBook" ToRole="History_OrderBook1" />
+    <NavigationProperty Name="History_OrderBook2" Relationship="ef_manager_newModel.FK_History_OrderBook_History_OrderBook" FromRole="History_OrderBook1" ToRole="History_OrderBook" />
+    <NavigationProperty Name="Order_Status" Relationship="ef_manager_newModel.FK_History_OrderBook_Order_Status" FromRole="History_OrderBook" ToRole="Order_Status" />
+    <NavigationProperty Name="Order_Types" Relationship="ef_manager_newModel.FK_History_OrderBook_Order_Types" FromRole="History_OrderBook" ToRole="Order_Types" />
+    <NavigationProperty Name="Symbol" Relationship="ef_manager_newModel.FK_History_OrderBook_Symbols" FromRole="History_OrderBook" ToRole="Symbol" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_History_OrderBook_Users" FromRole="History_OrderBook" ToRole="User" />
+    <NavigationProperty Name="History_Transactions" Relationship="ef_manager_newModel.FK_History_Transactions_History_OrderBook" FromRole="History_OrderBook" ToRole="History_Transactions" />
+    <NavigationProperty Name="History_Transactions1" Relationship="ef_manager_newModel.FK_History_Transactions_History_OrderBook1" FromRole="History_OrderBook" ToRole="History_Transactions" />
+  </EntityType>
+  <EntityType Name="History_Source">
+    <Key>
+      <PropertyRef Name="History_Source_ID" />
+    </Key>
+    <Property Name="History_Source_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="History_Source_Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HistorySymbols" Relationship="ef_manager_newModel.FK_HistorySymbols_History_Source" FromRole="History_Source" ToRole="HistorySymbol" />
+  </EntityType>
+  <EntityType Name="History_Transactions">
+    <Key>
+      <PropertyRef Name="Transaction_ID" />
+    </Key>
+    <Property Name="Transaction_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Transaction_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="B_Order_ID" Type="Int32" />
+    <Property Name="B_Order_Commision" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="S_Order_ID" Type="Int32" />
+    <Property Name="S_Order_Commision" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="History_OrderBook" Relationship="ef_manager_newModel.FK_History_Transactions_History_OrderBook" FromRole="History_Transactions" ToRole="History_OrderBook" />
+    <NavigationProperty Name="History_OrderBook1" Relationship="ef_manager_newModel.FK_History_Transactions_History_OrderBook1" FromRole="History_Transactions" ToRole="History_OrderBook" />
+    <NavigationProperty Name="Transaction_Types" Relationship="ef_manager_newModel.FK_History_Transactions_Transaction_Types" FromRole="History_Transactions" ToRole="Transaction_Types" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_History_Transactions_Users" FromRole="History_Transactions" ToRole="User" />
+  </EntityType>
+  <EntityType Name="HistorySymbol">
+    <Key>
+      <PropertyRef Name="History_Symbol_ID" />
+    </Key>
+    <Property Name="History_Symbol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="History_Symbol" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="History_Source_ID" Type="Int32" Nullable="false" />
+    <Property Name="DevidedBy" Type="Int32" Nullable="false" />
+    <Property Name="MultipliedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="History_Source" Relationship="ef_manager_newModel.FK_HistorySymbols_History_Source" FromRole="HistorySymbol" ToRole="History_Source" />
+    <NavigationProperty Name="Symbol" Relationship="ef_manager_newModel.FK_HistorySymbols_Symbols" FromRole="HistorySymbol" ToRole="Symbol" />
+  </EntityType>
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="Holiday_ID" />
+    </Key>
+    <Property Name="Holiday_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HolidayDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Endtime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HolidayType" Type="Int32" Nullable="false" />
+    <Property Name="Segment_ID" Type="Int32" Nullable="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Segment" Relationship="ef_manager_newModel.FK_Holidays_Segment" FromRole="Holiday" ToRole="Segment" />
+  </EntityType>
+  <EntityType Name="Liquidation_Types">
+    <Key>
+      <PropertyRef Name="Liqudation_Type_ID" />
+    </Key>
+    <Property Name="Liqudation_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Liquidation_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Offices" Relationship="ef_manager_newModel.FK_Office_Liquidation_Types" FromRole="Liquidation_Types" ToRole="Office" />
+    <NavigationProperty Name="Users" Relationship="ef_manager_newModel.FK_Users_Liquidation_Types" FromRole="Liquidation_Types" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Margin_Types">
+    <Key>
+      <PropertyRef Name="Margin_Type_ID" />
+    </Key>
+    <Property Name="Margin_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Margin_Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Margin_Types" FromRole="Margin_Types" ToRole="Base_Symbol" />
+    <NavigationProperty Name="Segment_Permissions" Relationship="ef_manager_newModel.FK_Segment_Permissions_Margin_Types" FromRole="Margin_Types" ToRole="Segment_Permissions" />
+  </EntityType>
+  <EntityType Name="ModulePermission">
+    <Key>
+      <PropertyRef Name="Module_Permission_ID" />
+    </Key>
+    <Property Name="Module_Permission_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Module_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppModule" Relationship="ef_manager_newModel.FK_ModulePermissions_AppModules" FromRole="ModulePermission" ToRole="AppModule" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_ModulePermissions_Users" FromRole="ModulePermission" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Office">
+    <Key>
+      <PropertyRef Name="Office_ID" />
+    </Key>
+    <Property Name="Office_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ContactPerson" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Byte" Nullable="false" />
+    <Property Name="EnableLiquidation" Type="Byte" Nullable="false" />
+    <Property Name="Liquidation_Type_ID" Type="Int32" />
+    <Property Name="LiquidationLevel" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FixedIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Liquidation_Types" Relationship="ef_manager_newModel.FK_Office_Liquidation_Types" FromRole="Office" ToRole="Liquidation_Types" />
+    <NavigationProperty Name="Users" Relationship="ef_manager_newModel.FK_Users_Office" FromRole="Office" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Order_Status">
+    <Key>
+      <PropertyRef Name="Order_Status_ID" />
+    </Key>
+    <Property Name="Order_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_Status1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="History_OrderBook" Relationship="ef_manager_newModel.FK_History_OrderBook_Order_Status" FromRole="Order_Status" ToRole="History_OrderBook" />
+    <NavigationProperty Name="Order_Status_History" Relationship="ef_manager_newModel.FK_Order_Status_History_Order_Status" FromRole="Order_Status" ToRole="Order_Status_History" />
+    <NavigationProperty Name="OrderBooks" Relationship="ef_manager_newModel.FK_OrderBook_Order_Status" FromRole="Order_Status" ToRole="OrderBook" />
+  </EntityType>
+  <EntityType Name="Order_Status_History">
+    <Key>
+      <PropertyRef Name="Order_Status_History_ID" />
+    </Key>
+    <Property Name="Order_Status_History_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Order_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Status_Updated_By" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Order_Status" Relationship="ef_manager_newModel.FK_Order_Status_History_Order_Status" FromRole="Order_Status_History" ToRole="Order_Status" />
+    <NavigationProperty Name="OrderBook" Relationship="ef_manager_newModel.FK_Order_Status_History_OrderBook" FromRole="Order_Status_History" ToRole="OrderBook" />
+  </EntityType>
+  <EntityType Name="Order_Types">
+    <Key>
+      <PropertyRef Name="Order_Type_ID" />
+    </Key>
+    <Property Name="Order_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_Type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="History_OrderBook" Relationship="ef_manager_newModel.FK_History_OrderBook_Order_Types" FromRole="Order_Types" ToRole="History_OrderBook" />
+    <NavigationProperty Name="OrderBooks" Relationship="ef_manager_newModel.FK_OrderBook_Order_Types" FromRole="Order_Types" ToRole="OrderBook" />
+  </EntityType>
+  <EntityType Name="OrderBook">
+    <Key>
+      <PropertyRef Name="Order_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Order_Side" Type="Boolean" Nullable="false" />
+    <Property Name="Order_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="27" Scale="10" />
+    <Property Name="Order_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Original_Order_ID" Type="Int32" />
+    <Property Name="IS_Order_Closed" Type="Boolean" Nullable="false" />
+    <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Order_Status" Relationship="ef_manager_newModel.FK_OrderBook_Order_Status" FromRole="OrderBook" ToRole="Order_Status" />
+    <NavigationProperty Name="Order_Status_History" Relationship="ef_manager_newModel.FK_Order_Status_History_OrderBook" FromRole="OrderBook" ToRole="Order_Status_History" />
+    <NavigationProperty Name="Order_Types" Relationship="ef_manager_newModel.FK_OrderBook_Order_Types" FromRole="OrderBook" ToRole="Order_Types" />
+    <NavigationProperty Name="OrderBook1" Relationship="ef_manager_newModel.FK_OrderBook_OrderBook" FromRole="OrderBook" ToRole="OrderBook1" />
+    <NavigationProperty Name="OrderBook2" Relationship="ef_manager_newModel.FK_OrderBook_OrderBook" FromRole="OrderBook1" ToRole="OrderBook" />
+    <NavigationProperty Name="Symbol" Relationship="ef_manager_newModel.FK_OrderBook_Symbols" FromRole="OrderBook" ToRole="Symbol" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_OrderBook_Users" FromRole="OrderBook" ToRole="User" />
+    <NavigationProperty Name="Transactions" Relationship="ef_manager_newModel.FK_Transactions_OrderBook" FromRole="OrderBook" ToRole="Transaction" />
+    <NavigationProperty Name="Transactions1" Relationship="ef_manager_newModel.FK_Transactions_OrderBook1" FromRole="OrderBook" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="PlatformPermission">
+    <Key>
+      <PropertyRef Name="Platform_Permission_ID" />
+    </Key>
+    <Property Name="Platform_Permission_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Platform_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Platform" Relationship="ef_manager_newModel.FK_PlatformPermissions_Platforms" FromRole="PlatformPermission" ToRole="Platform" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_PlatformPermissions_Users" FromRole="PlatformPermission" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Platform">
+    <Key>
+      <PropertyRef Name="Platform_ID" />
+    </Key>
+    <Property Name="Platform_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Platform_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PlatformPermissions" Relationship="ef_manager_newModel.FK_PlatformPermissions_Platforms" FromRole="Platform" ToRole="PlatformPermission" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Descriptioon" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admins" Relationship="ef_manager_newModel.FK_Admins_Roles" FromRole="Role" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="Sector_ID" />
+    </Key>
+    <Property Name="Sector_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sector1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Sector" FromRole="Sector" ToRole="Base_Symbol" />
+  </EntityType>
+  <EntityType Name="Segment">
+    <Key>
+      <PropertyRef Name="Segment_ID" />
+    </Key>
+    <Property Name="Segment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Segment1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Exchange_ID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Enabled" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Balances" Relationship="ef_manager_newModel.FK_Balance_Segment" FromRole="Segment" ToRole="Balance" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Segment" FromRole="Segment" ToRole="Base_Symbol" />
+    <NavigationProperty Name="Exchange" Relationship="ef_manager_newModel.FK_Segment_Exchange" FromRole="Segment" ToRole="Exchange" />
+    <NavigationProperty Name="Holidays" Relationship="ef_manager_newModel.FK_Holidays_Segment" FromRole="Segment" ToRole="Holiday" />
+    <NavigationProperty Name="Segment_Permissions" Relationship="ef_manager_newModel.FK_Segment_Permissions_Segment" FromRole="Segment" ToRole="Segment_Permissions" />
+  </EntityType>
+  <EntityType Name="Segment_Permissions">
+    <Key>
+      <PropertyRef Name="Segment_Permission_ID" />
+    </Key>
+    <Property Name="Segment_Permission_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Segment_ID" Type="Int32" Nullable="false" />
+    <Property Name="Exposure" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Margin_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Initial_Margin_X" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Maintainance_Margin_X" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Margin_Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Commission_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="Commission" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Commission_Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Commission_Types" Relationship="ef_manager_newModel.FK_Segment_Permissions_Commission_Types" FromRole="Segment_Permissions" ToRole="Commission_Types" />
+    <NavigationProperty Name="Margin_Types" Relationship="ef_manager_newModel.FK_Segment_Permissions_Margin_Types" FromRole="Segment_Permissions" ToRole="Margin_Types" />
+    <NavigationProperty Name="Segment" Relationship="ef_manager_newModel.FK_Segment_Permissions_Segment" FromRole="Segment_Permissions" ToRole="Segment" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_Segment_Permissions_Users" FromRole="Segment_Permissions" ToRole="User" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="State_ID" />
+    </Key>
+    <Property Name="State_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country_ID" Type="Int32" Nullable="false" />
+    <Property Name="State_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cities" Relationship="ef_manager_newModel.FK_City_State" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="ef_manager_newModel.FK_State_Country" FromRole="State" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="Symbol">
+    <Key>
+      <PropertyRef Name="Symbol_ID" />
+    </Key>
+    <Property Name="Symbol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Base_Symbol_ID" Type="Int32" Nullable="false" />
+    <Property Name="Symbol1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Additional_Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MinVolPerOrder" Type="Int32" Nullable="false" />
+    <Property Name="MaxVolPerOrder" Type="Int32" Nullable="false" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="TotalPositionLimit" Type="Int32" Nullable="false" />
+    <Property Name="ContractExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="HasDOM" Type="Boolean" Nullable="false" />
+    <Property Name="MaintainHistory" Type="Boolean" Nullable="false" />
+    <Property Name="ExecutionType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Symbols_Base_Symbol" FromRole="Symbol" ToRole="Base_Symbol" />
+    <NavigationProperty Name="DOMSymbols" Relationship="ef_manager_newModel.FK_DOMSymbols_Symbols" FromRole="Symbol" ToRole="DOMSymbol" />
+    <NavigationProperty Name="ExecutionType1" Relationship="ef_manager_newModel.FK_Symbols_ExecutionTypes" FromRole="Symbol" ToRole="ExecutionType" />
+    <NavigationProperty Name="FeedSymbols" Relationship="ef_manager_newModel.FK_FeedSymbols_Symbols" FromRole="Symbol" ToRole="FeedSymbol" />
+    <NavigationProperty Name="FrozenBalances" Relationship="ef_manager_newModel.FK_FrozenBalances_Symbols" FromRole="Symbol" ToRole="FrozenBalance" />
+    <NavigationProperty Name="History_OrderBook" Relationship="ef_manager_newModel.FK_History_OrderBook_Symbols" FromRole="Symbol" ToRole="History_OrderBook" />
+    <NavigationProperty Name="HistorySymbols" Relationship="ef_manager_newModel.FK_HistorySymbols_Symbols" FromRole="Symbol" ToRole="HistorySymbol" />
+    <NavigationProperty Name="OrderBooks" Relationship="ef_manager_newModel.FK_OrderBook_Symbols" FromRole="Symbol" ToRole="OrderBook" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transaction_Types">
+    <Key>
+      <PropertyRef Name="Transaction_Type_ID" />
+    </Key>
+    <Property Name="Transaction_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Transaction_Type" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="History_Transactions" Relationship="ef_manager_newModel.FK_History_Transactions_Transaction_Types" FromRole="Transaction_Types" ToRole="History_Transactions" />
+    <NavigationProperty Name="Transactions" Relationship="ef_manager_newModel.FK_Transactions_Transaction_Types" FromRole="Transaction_Types" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Transaction_ID" />
+    </Key>
+    <Property Name="Transaction_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Transaction_Type_ID" Type="Int32" Nullable="false" />
+    <Property Name="B_Order_ID" Type="Int32" />
+    <Property Name="B_Order_Commission" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="S_Order_ID" Type="Int32" />
+    <Property Name="S_Order_Commission" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
+    <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OrderBook" Relationship="ef_manager_newModel.FK_Transactions_OrderBook" FromRole="Transaction" ToRole="OrderBook" />
+    <NavigationProperty Name="OrderBook1" Relationship="ef_manager_newModel.FK_Transactions_OrderBook1" FromRole="Transaction" ToRole="OrderBook" />
+    <NavigationProperty Name="Transaction_Types" Relationship="ef_manager_newModel.FK_Transactions_Transaction_Types" FromRole="Transaction" ToRole="Transaction_Types" />
+    <NavigationProperty Name="User" Relationship="ef_manager_newModel.FK_Transactions_Users" FromRole="Transaction" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Registration_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Expiry_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="City_ID" Type="Int32" Nullable="false" />
+    <Property Name="Currency_ID" Type="Int32" Nullable="false" />
+    <Property Name="Balance_Type" Type="Int32" Nullable="false" />
+    <Property Name="Office_ID" Type="Int32" />
+    <Property Name="Enabled" Type="Byte" Nullable="false" />
+    <Property Name="EnableLiquidation" Type="Byte" Nullable="false" />
+    <Property Name="Liquidation_Type_ID" Type="Int32" />
+    <Property Name="LiquidateLevel" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ExecutionType" Type="Int32" Nullable="false" />
+    <Property Name="MarginOnLimits" Type="Byte" Nullable="false" />
+    <Property Name="UseCurrentPLForMargin" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Balance" Relationship="ef_manager_newModel.FK_Balance_Users" FromRole="User" ToRole="Balance" />
+    <NavigationProperty Name="Balance_Types" Relationship="ef_manager_newModel.FK_Users_Balance_Types" FromRole="User" ToRole="Balance_Types" />
+    <NavigationProperty Name="City" Relationship="ef_manager_newModel.FK_Users_City" FromRole="User" ToRole="City" />
+    <NavigationProperty Name="Currency" Relationship="ef_manager_newModel.FK_Users_Currency" FromRole="User" ToRole="Currency" />
+    <NavigationProperty Name="ExecutionType1" Relationship="ef_manager_newModel.FK_Users_ExecutionTypes" FromRole="User" ToRole="ExecutionType" />
+    <NavigationProperty Name="FrozenBalances" Relationship="ef_manager_newModel.FK_FrozenBalances_Users" FromRole="User" ToRole="FrozenBalance" />
+    <NavigationProperty Name="History_OrderBook" Relationship="ef_manager_newModel.FK_History_OrderBook_Users" FromRole="User" ToRole="History_OrderBook" />
+    <NavigationProperty Name="History_Transactions" Relationship="ef_manager_newModel.FK_History_Transactions_Users" FromRole="User" ToRole="History_Transactions" />
+    <NavigationProperty Name="Liquidation_Types" Relationship="ef_manager_newModel.FK_Users_Liquidation_Types" FromRole="User" ToRole="Liquidation_Types" />
+    <NavigationProperty Name="ModulePermissions" Relationship="ef_manager_newModel.FK_ModulePermissions_Users" FromRole="User" ToRole="ModulePermission" />
+    <NavigationProperty Name="Office" Relationship="ef_manager_newModel.FK_Users_Office" FromRole="User" ToRole="Office" />
+    <NavigationProperty Name="OrderBooks" Relationship="ef_manager_newModel.FK_OrderBook_Users" FromRole="User" ToRole="OrderBook" />
+    <NavigationProperty Name="PlatformPermissions" Relationship="ef_manager_newModel.FK_PlatformPermissions_Users" FromRole="User" ToRole="PlatformPermission" />
+    <NavigationProperty Name="Segment_Permissions" Relationship="ef_manager_newModel.FK_Segment_Permissions_Users" FromRole="User" ToRole="Segment_Permissions" />
+    <NavigationProperty Name="Transactions" Relationship="ef_manager_newModel.FK_Transactions_Users" FromRole="User" ToRole="Transaction" />
+  </EntityType>
+  <Association Name="FK_Admins_Roles">
+    <End Type="ef_manager_newModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Admin" Role="Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_ID" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModulePermissions_AppModules">
+    <End Type="ef_manager_newModel.AppModule" Role="AppModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.ModulePermission" Role="ModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppModule">
+        <PropertyRef Name="Module_ID" />
+      </Principal>
+      <Dependent Role="ModulePermission">
+        <PropertyRef Name="Module_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Balance_Segment">
+    <End Type="ef_manager_newModel.Segment" Role="Segment" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.Balance" Role="Balance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Segment">
+        <PropertyRef Name="Segment_ID" />
+      </Principal>
+      <Dependent Role="Balance">
+        <PropertyRef Name="Segment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Balance_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Balance" Role="Balance" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Balance">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Balance_Types">
+    <End Type="ef_manager_newModel.Balance_Types" Role="Balance_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Balance_Types">
+        <PropertyRef Name="Balance_Type_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Balance_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_Commission_Types">
+    <End Type="ef_manager_newModel.Commission_Types" Role="Commission_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commission_Types">
+        <PropertyRef Name="Commission_Type_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Commission_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_ContractKind">
+    <End Type="ef_manager_newModel.ContractKind" Role="ContractKind" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractKind">
+        <PropertyRef Name="Contract_Kind_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Contract_Kind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_Currency">
+    <End Type="ef_manager_newModel.Currency" Role="Currency" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Currency_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Currency_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_Exchange">
+    <End Type="ef_manager_newModel.Exchange" Role="Exchange" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exchange">
+        <PropertyRef Name="Exchange_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Exchange_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_Margin_Types">
+    <End Type="ef_manager_newModel.Margin_Types" Role="Margin_Types" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Margin_Types">
+        <PropertyRef Name="Margin_Type_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Margin_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_Sector">
+    <End Type="ef_manager_newModel.Sector" Role="Sector" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="Sector_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Sector_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Symbol_Segment">
+    <End Type="ef_manager_newModel.Segment" Role="Segment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Segment">
+        <PropertyRef Name="Segment_ID" />
+      </Principal>
+      <Dependent Role="Base_Symbol">
+        <PropertyRef Name="Segment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Symbols_Base_Symbol">
+    <End Type="ef_manager_newModel.Base_Symbol" Role="Base_Symbol" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Base_Symbol">
+        <PropertyRef Name="Base_Symbol_ID" />
+      </Principal>
+      <Dependent Role="Symbol">
+        <PropertyRef Name="Base_Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Type="ef_manager_newModel.State" Role="State" Multiplicity="1" />
+    <End Type="ef_manager_newModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="State_ID" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_City">
+    <End Type="ef_manager_newModel.City" Role="City" Multiplicity="1" />
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="City_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="City_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Segment_Permissions_Commission_Types">
+    <End Type="ef_manager_newModel.Commission_Types" Role="Commission_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Segment_Permissions" Role="Segment_Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commission_Types">
+        <PropertyRef Name="Commission_Type_ID" />
+      </Principal>
+      <Dependent Role="Segment_Permissions">
+        <PropertyRef Name="Commission_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Country">
+    <End Type="ef_manager_newModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Exchange" Role="Exchange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_ID" />
+      </Principal>
+      <Dependent Role="Exchange">
+        <PropertyRef Name="Country_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Type="ef_manager_newModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="ef_manager_newModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_ID" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="Country_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Currency">
+    <End Type="ef_manager_newModel.Currency" Role="Currency" Multiplicity="1" />
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Currency_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Currency_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOMSymbols_DOMSource">
+    <End Type="ef_manager_newModel.DOMSource" Role="DOMSource" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.DOMSymbol" Role="DOMSymbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOMSource">
+        <PropertyRef Name="DOM_Source_ID" />
+      </Principal>
+      <Dependent Role="DOMSymbol">
+        <PropertyRef Name="DOM_Source_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOMSymbols_Symbols">
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.DOMSymbol" Role="DOMSymbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Principal>
+      <Dependent Role="DOMSymbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Segment_Exchange">
+    <End Type="ef_manager_newModel.Exchange" Role="Exchange" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Segment" Role="Segment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exchange">
+        <PropertyRef Name="Exchange_ID" />
+      </Principal>
+      <Dependent Role="Segment">
+        <PropertyRef Name="Exchange_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Symbols_ExecutionTypes">
+    <End Type="ef_manager_newModel.ExecutionType" Role="ExecutionType" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExecutionType">
+        <PropertyRef Name="ExecutionTypeID" />
+      </Principal>
+      <Dependent Role="Symbol">
+        <PropertyRef Name="ExecutionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ExecutionTypes">
+    <End Type="ef_manager_newModel.ExecutionType" Role="ExecutionType" Multiplicity="1" />
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExecutionType">
+        <PropertyRef Name="ExecutionTypeID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ExecutionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedSymbols_FeedSource">
+    <End Type="ef_manager_newModel.FeedSource" Role="FeedSource" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.FeedSymbol" Role="FeedSymbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedSource">
+        <PropertyRef Name="Feed_Source_ID" />
+      </Principal>
+      <Dependent Role="FeedSymbol">
+        <PropertyRef Name="Feed_Source_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedSymbols_Symbols">
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.FeedSymbol" Role="FeedSymbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Principal>
+      <Dependent Role="FeedSymbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FrozenBalances_Symbols">
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="1" />
+    <End Type="ef_manager_newModel.FrozenBalance" Role="FrozenBalance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Principal>
+      <Dependent Role="FrozenBalance">
+        <PropertyRef Name="Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FrozenBalances_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.FrozenBalance" Role="FrozenBalance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="FrozenBalance">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_OrderBook_History_OrderBook">
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="History_OrderBook">
+        <PropertyRef Name="History_Order_ID" />
+      </Principal>
+      <Dependent Role="History_OrderBook1">
+        <PropertyRef Name="Original_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_OrderBook_Order_Status">
+    <End Type="ef_manager_newModel.Order_Status" Role="Order_Status" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Status">
+        <PropertyRef Name="Order_Status_ID" />
+      </Principal>
+      <Dependent Role="History_OrderBook">
+        <PropertyRef Name="Order_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_OrderBook_Order_Types">
+    <End Type="ef_manager_newModel.Order_Types" Role="Order_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Types">
+        <PropertyRef Name="Order_Type_ID" />
+      </Principal>
+      <Dependent Role="History_OrderBook">
+        <PropertyRef Name="Order_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_OrderBook_Symbols">
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Principal>
+      <Dependent Role="History_OrderBook">
+        <PropertyRef Name="Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_OrderBook_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="History_OrderBook">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Transactions_History_OrderBook">
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.History_Transactions" Role="History_Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="History_OrderBook">
+        <PropertyRef Name="History_Order_ID" />
+      </Principal>
+      <Dependent Role="History_Transactions">
+        <PropertyRef Name="B_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Transactions_History_OrderBook1">
+    <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.History_Transactions" Role="History_Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="History_OrderBook">
+        <PropertyRef Name="History_Order_ID" />
+      </Principal>
+      <Dependent Role="History_Transactions">
+        <PropertyRef Name="S_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorySymbols_History_Source">
+    <End Type="ef_manager_newModel.History_Source" Role="History_Source" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.HistorySymbol" Role="HistorySymbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="History_Source">
+        <PropertyRef Name="History_Source_ID" />
+      </Principal>
+      <Dependent Role="HistorySymbol">
+        <PropertyRef Name="History_Source_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Transactions_Transaction_Types">
+    <End Type="ef_manager_newModel.Transaction_Types" Role="Transaction_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_Transactions" Role="History_Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction_Types">
+        <PropertyRef Name="Transaction_Type_ID" />
+      </Principal>
+      <Dependent Role="History_Transactions">
+        <PropertyRef Name="Transaction_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Transactions_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1" />
+    <End Type="ef_manager_newModel.History_Transactions" Role="History_Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="History_Transactions">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorySymbols_Symbols">
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.HistorySymbol" Role="HistorySymbol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Principal>
+      <Dependent Role="HistorySymbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Holidays_Segment">
+    <End Type="ef_manager_newModel.Segment" Role="Segment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Holiday" Role="Holiday" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Segment">
+        <PropertyRef Name="Segment_ID" />
+      </Principal>
+      <Dependent Role="Holiday">
+        <PropertyRef Name="Segment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Office_Liquidation_Types">
+    <End Type="ef_manager_newModel.Liquidation_Types" Role="Liquidation_Types" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.Office" Role="Office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Liquidation_Types">
+        <PropertyRef Name="Liqudation_Type_ID" />
+      </Principal>
+      <Dependent Role="Office">
+        <PropertyRef Name="Liquidation_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Liquidation_Types">
+    <End Type="ef_manager_newModel.Liquidation_Types" Role="Liquidation_Types" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Liquidation_Types">
+        <PropertyRef Name="Liqudation_Type_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Liquidation_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Segment_Permissions_Margin_Types">
+    <End Type="ef_manager_newModel.Margin_Types" Role="Margin_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Segment_Permissions" Role="Segment_Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Margin_Types">
+        <PropertyRef Name="Margin_Type_ID" />
+      </Principal>
+      <Dependent Role="Segment_Permissions">
+        <PropertyRef Name="Margin_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModulePermissions_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.ModulePermission" Role="ModulePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="ModulePermission">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Office">
+    <End Type="ef_manager_newModel.Office" Role="Office" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Office">
+        <PropertyRef Name="Office_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Office_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Status_History_Order_Status">
+    <End Type="ef_manager_newModel.Order_Status" Role="Order_Status" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Order_Status_History" Role="Order_Status_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Status">
+        <PropertyRef Name="Order_Status_ID" />
+      </Principal>
+      <Dependent Role="Order_Status_History">
+        <PropertyRef Name="Order_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderBook_Order_Status">
+    <End Type="ef_manager_newModel.Order_Status" Role="Order_Status" Multiplicity="1" />
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Status">
+        <PropertyRef Name="Order_Status_ID" />
+      </Principal>
+      <Dependent Role="OrderBook">
+        <PropertyRef Name="Order_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Status_History_OrderBook">
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Order_Status_History" Role="Order_Status_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderBook">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Order_Status_History">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderBook_Order_Types">
+    <End Type="ef_manager_newModel.Order_Types" Role="Order_Types" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Types">
+        <PropertyRef Name="Order_Type_ID" />
+      </Principal>
+      <Dependent Role="OrderBook">
+        <PropertyRef Name="Order_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderBook_OrderBook">
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderBook">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="OrderBook1">
+        <PropertyRef Name="Original_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderBook_Symbols">
+    <End Type="ef_manager_newModel.Symbol" Role="Symbol" Multiplicity="1" />
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symbol">
+        <PropertyRef Name="Symbol_ID" />
+      </Principal>
+      <Dependent Role="OrderBook">
+        <PropertyRef Name="Symbol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderBook_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1" />
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="OrderBook">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_OrderBook">
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderBook">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="B_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_OrderBook1">
+    <End Type="ef_manager_newModel.OrderBook" Role="OrderBook" Multiplicity="0..1" />
+    <End Type="ef_manager_newModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderBook">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="S_Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlatformPermissions_Platforms">
+    <End Type="ef_manager_newModel.Platform" Role="Platform" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.PlatformPermission" Role="PlatformPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Platform">
+        <PropertyRef Name="Platform_ID" />
+      </Principal>
+      <Dependent Role="PlatformPermission">
+        <PropertyRef Name="Platform_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlatformPermissions_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.PlatformPermission" Role="PlatformPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="PlatformPermission">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Segment_Permissions_Segment">
+    <End Type="ef_manager_newModel.Segment" Role="Segment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Segment_Permissions" Role="Segment_Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Segment">
+        <PropertyRef Name="Segment_ID" />
+      </Principal>
+      <Dependent Role="Segment_Permissions">
+        <PropertyRef Name="Segment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Segment_Permissions_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ef_manager_newModel.Segment_Permissions" Role="Segment_Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Segment_Permissions">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Transaction_Types">
+    <End Type="ef_manager_newModel.Transaction_Types" Role="Transaction_Types" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction_Types">
+        <PropertyRef Name="Transaction_Type_ID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="Transaction_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Users">
+    <End Type="ef_manager_newModel.User" Role="User" Multiplicity="1" />
+    <End Type="ef_manager_newModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
