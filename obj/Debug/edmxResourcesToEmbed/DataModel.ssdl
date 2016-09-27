@@ -25,7 +25,6 @@
     <Property Name="User_ID" Type="int" Nullable="false" />
     <Property Name="Segment_ID" Type="int" />
     <Property Name="Balance" Type="decimal" Precision="27" Scale="2" Nullable="false" />
-    <Property Name="Frozen_Balance" Type="decimal" Precision="27" Scale="2" Nullable="false" />
     <Property Name="Insert_Date" Type="datetime" Nullable="false" />
     <Property Name="Update_Date" Type="datetime" Nullable="false" />
   </EntityType>
@@ -170,8 +169,8 @@
     <Property Name="FozenBalance_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="User_ID" Type="int" Nullable="false" />
     <Property Name="Symbol_ID" Type="int" Nullable="false" />
-    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="IsReleased" Type="tinyint" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="27" Scale="2" Nullable="false" />
+    <Property Name="IsReleased" Type="bit" Nullable="false" />
     <Property Name="Comments" Type="varchar(max)" Nullable="false" />
     <Property Name="Insert_Date" Type="datetime" Nullable="false" />
     <Property Name="Update_Date" Type="datetime" Nullable="false" />
@@ -408,16 +407,6 @@
     <Property Name="HasDOM" Type="bit" Nullable="false" />
     <Property Name="MaintainHistory" Type="bit" Nullable="false" />
     <Property Name="ExecutionType" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Transaction_Types">
     <Key>
@@ -1299,7 +1288,6 @@
     <EntitySet Name="Segment_Permissions" EntityType="Self.Segment_Permissions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Symbols" EntityType="Self.Symbols" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transaction_Types" EntityType="Self.Transaction_Types" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />

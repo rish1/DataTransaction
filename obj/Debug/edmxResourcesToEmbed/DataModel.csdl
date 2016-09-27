@@ -69,7 +69,6 @@
     <EntitySet Name="Segment_Permissions" EntityType="ef_manager_newModel.Segment_Permissions" />
     <EntitySet Name="States" EntityType="ef_manager_newModel.State" />
     <EntitySet Name="Symbols" EntityType="ef_manager_newModel.Symbol" />
-    <EntitySet Name="sysdiagrams" EntityType="ef_manager_newModel.sysdiagram" />
     <EntitySet Name="Transaction_Types" EntityType="ef_manager_newModel.Transaction_Types" />
     <EntitySet Name="Transactions" EntityType="ef_manager_newModel.Transaction" />
     <EntitySet Name="Users" EntityType="ef_manager_newModel.User" />
@@ -352,7 +351,6 @@
     <Property Name="User_ID" Type="Int32" Nullable="false" />
     <Property Name="Segment_ID" Type="Int32" />
     <Property Name="Balance1" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
-    <Property Name="Frozen_Balance" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
     <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Segment" Relationship="ef_manager_newModel.FK_Balance_Segment" FromRole="Balance" ToRole="Segment" />
@@ -528,8 +526,8 @@
     <Property Name="FozenBalance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="User_ID" Type="Int32" Nullable="false" />
     <Property Name="Symbol_ID" Type="Int32" Nullable="false" />
-    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="IsReleased" Type="Byte" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="27" Scale="2" />
+    <Property Name="IsReleased" Type="Boolean" Nullable="false" />
     <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Insert_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
@@ -832,16 +830,6 @@
     <NavigationProperty Name="History_OrderBook" Relationship="ef_manager_newModel.FK_History_OrderBook_Symbols" FromRole="Symbol" ToRole="History_OrderBook" />
     <NavigationProperty Name="HistorySymbols" Relationship="ef_manager_newModel.FK_HistorySymbols_Symbols" FromRole="Symbol" ToRole="HistorySymbol" />
     <NavigationProperty Name="OrderBooks" Relationship="ef_manager_newModel.FK_OrderBook_Symbols" FromRole="Symbol" ToRole="OrderBook" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Transaction_Types">
     <Key>

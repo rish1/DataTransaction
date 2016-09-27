@@ -18,7 +18,7 @@ namespace DataTransaction
         public int User_ID { get; set; }
         public int Symbol_ID { get; set; }
         public decimal Balance { get; set; }
-        public byte IsReleased { get; set; }
+        public bool IsReleased { get; set; }
         public string Comments { get; set; }
         public System.DateTime Insert_Date { get; set; }
         public System.DateTime Update_Date { get; set; }

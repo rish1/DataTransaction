@@ -6,47 +6,46 @@
     <edmx:Diagrams>
       <Diagram DiagramId="486950859f4f4ba5b1e07d90649d34ef" Name="Diagram1" ZoomLevel="16">
         <EntityTypeShape EntityType="ef_manager_newModel.Admin" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="ef_manager_newModel.AppModule" Width="1.5" PointX="7.5" PointY="14.625" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Balance" Width="1.5" PointX="9.75" PointY="27.375" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Balance_Types" Width="1.5" PointX="5.25" PointY="29.25" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Base_Symbol" Width="1.5" PointX="7.5" PointY="30.125" />
-        <EntityTypeShape EntityType="ef_manager_newModel.City" Width="1.5" PointX="5.25" PointY="23.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Commission_Types" Width="1.5" PointX="5.25" PointY="47.875" />
-        <EntityTypeShape EntityType="ef_manager_newModel.ContractKind" Width="1.5" PointX="5.25" PointY="42.875" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Country" Width="1.5" PointX="0.75" PointY="25.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Currency" Width="1.5" PointX="5.25" PointY="19.75" />
-        <EntityTypeShape EntityType="ef_manager_newModel.DOMSource" Width="1.5" PointX="9.75" PointY="37.625" />
-        <EntityTypeShape EntityType="ef_manager_newModel.DOMSymbol" Width="1.5" PointX="12" PointY="33.25" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Exchange" Width="1.5" PointX="3" PointY="26.25" />
-        <EntityTypeShape EntityType="ef_manager_newModel.ExecutionType" Width="1.5" PointX="5.25" PointY="26.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.FeedSource" Width="1.5" PointX="12.75" PointY="40.625" />
-        <EntityTypeShape EntityType="ef_manager_newModel.FeedSymbol" Width="1.5" PointX="15" PointY="36.125" />
-        <EntityTypeShape EntityType="ef_manager_newModel.FrozenBalance" Width="1.5" PointX="15" PointY="31.875" />
-        <EntityTypeShape EntityType="ef_manager_newModel.History_OrderBook" Width="1.5" PointX="15" PointY="26" />
-        <EntityTypeShape EntityType="ef_manager_newModel.History_Source" Width="1.5" PointX="9.75" PointY="40.625" />
-        <EntityTypeShape EntityType="ef_manager_newModel.History_Transactions" Width="1.5" PointX="20.25" PointY="23.75" />
-        <EntityTypeShape EntityType="ef_manager_newModel.HistorySymbol" Width="1.5" PointX="12" PointY="37.25" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Holiday" Width="1.5" PointX="7.5" PointY="42" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Liquidation_Types" Width="1.5" PointX="5.25" PointY="17" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Margin_Types" Width="1.5" PointX="5.25" PointY="45.25" />
-        <EntityTypeShape EntityType="ef_manager_newModel.ModulePermission" Width="1.5" PointX="9.75" PointY="23.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Office" Width="1.5" PointX="5.25" PointY="37.75" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Order_Status" Width="1.5" PointX="9.75" PointY="13.625" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Order_Status_History" Width="1.5" PointX="14.25" PointY="22" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Order_Types" Width="1.5" PointX="9.75" PointY="16.875" />
-        <EntityTypeShape EntityType="ef_manager_newModel.OrderBook" Width="1.5" PointX="12" PointY="21.625" />
-        <EntityTypeShape EntityType="ef_manager_newModel.PlatformPermission" Width="1.5" PointX="9.75" PointY="20.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Platform" Width="1.5" PointX="7.5" PointY="17.625" />
+        <EntityTypeShape EntityType="ef_manager_newModel.AppModule" Width="1.5" PointX="7.5" PointY="17.5" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Balance" Width="1.5" PointX="12.75" PointY="24.625" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Balance_Types" Width="1.5" PointX="5.25" PointY="38.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Base_Symbol" Width="1.5" PointX="10.5" PointY="28.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.City" Width="1.5" PointX="5.25" PointY="23.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Commission_Types" Width="1.5" PointX="7.5" PointY="29.625" />
+        <EntityTypeShape EntityType="ef_manager_newModel.ContractKind" Width="1.5" PointX="8.25" PointY="40.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Country" Width="1.5" PointX="0.75" PointY="25.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Currency" Width="1.5" PointX="5.25" PointY="30.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.DOMSource" Width="1.5" PointX="12.75" PointY="41.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.DOMSymbol" Width="1.5" PointX="15" PointY="34.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Exchange" Width="1.5" PointX="3" PointY="26.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.ExecutionType" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.FeedSource" Width="1.5" PointX="18.75" PointY="37.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.FeedSymbol" Width="1.5" PointX="21" PointY="30.25" />
+        <EntityTypeShape EntityType="ef_manager_newModel.FrozenBalance" Width="1.5" PointX="18" PointY="25.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.History_OrderBook" Width="1.5" PointX="15" PointY="25.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.History_Source" Width="1.5" PointX="12.75" PointY="38.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.History_Transactions" Width="1.5" PointX="17.25" PointY="21.25" />
+        <EntityTypeShape EntityType="ef_manager_newModel.HistorySymbol" Width="1.5" PointX="15" PointY="30.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Holiday" Width="1.5" PointX="7.5" PointY="34.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Liquidation_Types" Width="1.5" PointX="5.25" PointY="19.625" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Margin_Types" Width="1.5" PointX="7.5" PointY="14.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.ModulePermission" Width="1.5" PointX="9.75" PointY="19.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Office" Width="1.5" PointX="5.25" PointY="33.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Order_Status" Width="1.5" PointX="12.75" PointY="35.625" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Order_Status_History" Width="1.5" PointX="20.25" PointY="34" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Order_Types" Width="1.5" PointX="12.75" PointY="17.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.OrderBook" Width="1.5" PointX="18" PointY="29.75" />
+        <EntityTypeShape EntityType="ef_manager_newModel.PlatformPermission" Width="1.5" PointX="12.75" PointY="21.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Platform" Width="1.5" PointX="10.5" PointY="16.5" />
         <EntityTypeShape EntityType="ef_manager_newModel.Role" Width="1.5" PointX="0.75" PointY="1.125" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Sector" Width="1.5" PointX="5.25" PointY="50.375" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Segment" Width="1.5" PointX="5.25" PointY="33.875" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Segment_Permissions" Width="1.5" PointX="12.75" PointY="27.75" />
-        <EntityTypeShape EntityType="ef_manager_newModel.State" Width="1.5" PointX="3" PointY="23.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Symbol" Width="1.5" PointX="9.75" PointY="31" />
-        <EntityTypeShape EntityType="ef_manager_newModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Transaction_Types" Width="1.5" PointX="15" PointY="18.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.Transaction" Width="1.5" PointX="17.25" PointY="22.5" />
-        <EntityTypeShape EntityType="ef_manager_newModel.User" Width="1.5" PointX="7.5" PointY="20.5" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Sector" Width="1.5" PointX="8.25" PointY="37.625" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Segment" Width="1.5" PointX="5.25" PointY="26.25" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Segment_Permissions" Width="1.5" PointX="9.75" PointY="22.875" />
+        <EntityTypeShape EntityType="ef_manager_newModel.State" Width="1.5" PointX="3" PointY="23.375" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Symbol" Width="1.5" PointX="12.75" PointY="29.125" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Transaction_Types" Width="1.5" PointX="15" PointY="22" />
+        <EntityTypeShape EntityType="ef_manager_newModel.Transaction" Width="1.5" PointX="20.25" PointY="24.75" />
+        <EntityTypeShape EntityType="ef_manager_newModel.User" Width="1.5" PointX="7.5" PointY="20.375" />
         <AssociationConnector Association="ef_manager_newModel.FK_Admins_Roles" />
         <AssociationConnector Association="ef_manager_newModel.FK_ModulePermissions_AppModules" />
         <AssociationConnector Association="ef_manager_newModel.FK_Balance_Segment" />

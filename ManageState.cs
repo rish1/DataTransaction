@@ -47,7 +47,7 @@ namespace DataTransaction
                 State k = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    k = db.States.Where(m => m.State_ID == id).FirstOrDefault();
+                    k = db.States.Where(m => m.State_ID == id).Include(x=>x.Country).FirstOrDefault();
                 }
                 return k;
             }

@@ -78,7 +78,6 @@ namespace DataTransaction
             {
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    //s = db.Admins.Where(m => m.Admin_ID == admin.Admin_ID).FirstOrDefault();
                     db.Entry(admin).State = EntityState.Modified;
                     db.SaveChanges();
                 }

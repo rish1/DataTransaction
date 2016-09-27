@@ -17,7 +17,6 @@ namespace DataTransaction
         public int User_ID { get; set; }
         public Nullable<int> Segment_ID { get; set; }
         public decimal Balance1 { get; set; }
-        public decimal Frozen_Balance { get; set; }
         public System.DateTime Insert_Date { get; set; }
         public System.DateTime Update_Date { get; set; }
     

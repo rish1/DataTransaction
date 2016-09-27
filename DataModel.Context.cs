@@ -20,6 +20,7 @@ namespace DataTransaction
         public ef_manager_newEntities()
             : base("name=ef_manager_newEntities")
         {
+           
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -65,7 +66,6 @@ namespace DataTransaction
         public virtual DbSet<Segment_Permissions> Segment_Permissions { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<Symbol> Symbols { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Transaction_Types> Transaction_Types { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<User> Users { get; set; }

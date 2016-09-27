@@ -45,7 +45,7 @@ namespace DataTransaction
             try {
                 City s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities()) {
-                    s = db.Cities.Where(m => m.City_ID == id).FirstOrDefault();
+                    s = db.Cities.Where(m => m.City_ID == id).Include(x=>x.State).FirstOrDefault();
                 }
                 return s;
             }catch(Exception e)
