@@ -13,7 +13,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.History_OrderBook.ToList();
+                return db.History_OrderBook.Include(x => x.Symbol).Include(x => x.User).Include(x => x.Order_Status).Include(x => x.Order_Types).Include(x => x.History_OrderBook2).ToList();
             }
         }
 
@@ -46,7 +46,7 @@ namespace DataTransaction
                 History_OrderBook s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.History_OrderBook.Where(m => m.History_Order_ID == id).FirstOrDefault();
+                    s = db.History_OrderBook.Where(m => m.History_Order_ID == id).Include(x=>x.Symbol).Include(x=>x.User).Include(x=>x.Order_Status).Include(x=>x.Order_Types).Include(x=>x.History_OrderBook2).FirstOrDefault();
                 }
                 return s;
             }

@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.ModulePermissions.ToList();
+                return db.ModulePermissions.Include(x => x.AppModule).Include(x => x.User).ToList();
             }
         }
 
@@ -47,7 +47,7 @@ namespace DataTransaction
                 ModulePermission s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.ModulePermissions.Where(m => m.Module_Permission_ID == id).FirstOrDefault();
+                    s = db.ModulePermissions.Where(m => m.Module_Permission_ID == id).Include(x=>x.AppModule).Include(x=>x.User).FirstOrDefault();
                 }
                 return s;
             }

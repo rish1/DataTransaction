@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Symbols.ToList();
+                return db.Symbols.Include(x => x.Base_Symbol).Include(x => x.ExecutionType1).ToList();
             }
         }
 
@@ -47,7 +47,7 @@ namespace DataTransaction
                 Symbol k = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    k = db.Symbols.Where(m => m.Symbol_ID == id).FirstOrDefault();
+                    k = db.Symbols.Where(m => m.Symbol_ID == id).Include(x=>x.Base_Symbol).Include(x=>x.ExecutionType1).FirstOrDefault();
                 }
                 return k;
             }

@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Transactions.ToList();
+                return db.Transactions.Include(x => x.User).Include(x => x.OrderBook1).Include(x => x.Transaction_Types).ToList();
             }
         }
 
@@ -51,7 +51,7 @@ namespace DataTransaction
                 Transaction s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.Transactions.Where(m => m.Transaction_ID == id).FirstOrDefault();
+                    s = db.Transactions.Where(m => m.Transaction_ID == id).Include(x=>x.User).Include(x=>x.OrderBook1).Include(x=>x.Transaction_Types).FirstOrDefault();
                 }
                 return s;
             }

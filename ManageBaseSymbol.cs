@@ -13,7 +13,7 @@ namespace DataTransaction
         {
             using(ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Base_Symbol.ToList();
+                return db.Base_Symbol.Include(x => x.ContractKind).Include(x => x.Commission_Types).Include(x => x.Currency).Include(x => x.Exchange).Include(x => x.Sector).Include(x => x.Segment).Include(x => x.Margin_Types).ToList();
             }
             
         }

@@ -13,7 +13,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.HistorySymbols.ToList();
+                return db.HistorySymbols.Include(x => x.History_Source).Include(x => x.Symbol).ToList();
             }
         }
 
@@ -46,7 +46,7 @@ namespace DataTransaction
                 HistorySymbol s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.HistorySymbols.Where(m => m.History_Symbol_ID == id).FirstOrDefault();
+                    s = db.HistorySymbols.Where(m => m.History_Symbol_ID == id).Include(x=>x.History_Source).Include(x=>x.Symbol).FirstOrDefault();
                 }
                 return s;
             }

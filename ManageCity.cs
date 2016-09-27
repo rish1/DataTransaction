@@ -7,14 +7,21 @@ using System.Data.Entity;
 
 namespace DataTransaction
 {
-  public  class ManageCity
+    public class ManageCity
     {
-      //  ef_manager_newEntities db = new ef_manager_newEntities();
-      public static List<City> GetallCities()
+        //  ef_manager_newEntities db = new ef_manager_newEntities();
+        //public static string GetallCities()
+        //{
+        //    using (ef_manager_newEntities db = new ef_manager_newEntities())
+        //    {
+        //        return jsonHub.Serialize(db.Cities.ToList());
+        //    }
+        //}
+        public static List<City> GetallCities()
         {
-            using(ef_manager_newEntities db = new ef_manager_newEntities())
+            using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Cities.ToList();
+                return db.Cities.Include(x => x.State).ToList();
             }
         }
 
@@ -29,7 +36,7 @@ namespace DataTransaction
                 }
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return false;
@@ -42,13 +49,16 @@ namespace DataTransaction
             {
                 return null;
             }
-            try {
+            try
+            {
                 City s = null;
-                using (ef_manager_newEntities db = new ef_manager_newEntities()) {
-                    s = db.Cities.Where(m => m.City_ID == id).Include(x=>x.State).FirstOrDefault();
+                using (ef_manager_newEntities db = new ef_manager_newEntities())
+                {
+                    s = db.Cities.Where(m => m.City_ID == id).Include(x => x.State).FirstOrDefault();
                 }
                 return s;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return null;
@@ -93,7 +103,7 @@ namespace DataTransaction
                 }
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return false;

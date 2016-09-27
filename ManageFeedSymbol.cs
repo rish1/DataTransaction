@@ -13,7 +13,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.FeedSymbols.ToList();
+                return db.FeedSymbols.Include(x => x.Symbol).Include(x => x.FeedSource).ToList();
             }
         }
 
@@ -46,7 +46,7 @@ namespace DataTransaction
                 FeedSymbol s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.FeedSymbols.Where(m => m.Feed_Symbol_ID == id).FirstOrDefault();
+                    s = db.FeedSymbols.Where(m => m.Feed_Symbol_ID == id).Include(x=>x.Symbol).Include(x=>x.FeedSource).FirstOrDefault();
                 }
                 return s;
             }

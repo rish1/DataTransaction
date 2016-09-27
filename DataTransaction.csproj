@@ -139,6 +139,7 @@
     <Compile Include="Holiday.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="jsonHub.cs" />
     <Compile Include="Liquidation_Types.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Holidays.ToList();
+                return db.Holidays.Include(x => x.Segment).ToList();
             }
         }
 
@@ -47,7 +47,7 @@ namespace DataTransaction
                 Holiday s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.Holidays.Where(m => m.Holiday_ID == id).FirstOrDefault();
+                    s = db.Holidays.Where(m => m.Holiday_ID == id).Include(x=>x.Segment).FirstOrDefault();
                 }
                 return s;
             }

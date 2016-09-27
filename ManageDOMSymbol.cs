@@ -13,7 +13,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.DOMSymbols.ToList();
+                return db.DOMSymbols.Include(x => x.Symbol).ToList();
             }
         }
 
@@ -46,7 +46,7 @@ namespace DataTransaction
                 DOMSymbol s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.DOMSymbols.Where(m => m.DOM_Symbols_ID == id).FirstOrDefault();
+                    s = db.DOMSymbols.Where(m => m.DOM_Symbols_ID == id).Include(x=>x.Symbol).FirstOrDefault();
                 }
                 return s;
             }

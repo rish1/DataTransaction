@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Segment_Permissions.ToList();
+                return db.Segment_Permissions.Include(x => x.User).Include(x => x.Segment).Include(x => x.Margin_Types).Include(x => x.Commission_Types).ToList();
             }
         }
 
@@ -47,7 +47,7 @@ namespace DataTransaction
                 Segment_Permissions s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.Segment_Permissions.Where(m => m.Segment_Permission_ID == id).FirstOrDefault();
+                    s = db.Segment_Permissions.Where(m => m.Segment_Permission_ID == id).Include(x=>x.User).Include(x=>x.Segment).Include(x=>x.Margin_Types).Include(x=>x.Commission_Types).FirstOrDefault();
                 }
                 return s;
             }

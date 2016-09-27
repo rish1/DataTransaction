@@ -13,7 +13,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Exchanges.ToList();
+                return db.Exchanges.Include(x => x.Country).ToList();
             }
         }
 
@@ -46,7 +46,7 @@ namespace DataTransaction
                 Exchange s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.Exchanges.Where(m => m.Exchange_ID == id).FirstOrDefault();
+                    s = db.Exchanges.Where(m => m.Exchange_ID == id).Include(x=>x.Country).FirstOrDefault();
                 }
                 return s;
             }

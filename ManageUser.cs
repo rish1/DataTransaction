@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using(ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Users.ToList();
+                return db.Users.Include(x => x.Balance).Include(x => x.Balance_Type).Include(x => x.City).Include(x => x.Currency).Include(x => x.ExecutionType1).Include(x => x.Liquidation_Types).Include(x => x.Office).ToList();
             }
         }
 
@@ -45,7 +45,7 @@ namespace DataTransaction
             try {
                 User s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities()) {
-                    s = db.Users.Where(m => m.User_ID == id).FirstOrDefault();
+                    s = db.Users.Where(m => m.User_ID == id).Include(x=>x.Balance).Include(x=>x.Balance_Type).Include(x=>x.City).Include(x=>x.Currency).Include(x=>x.ExecutionType1).Include(x=>x.Liquidation_Types).Include(x=>x.Office).FirstOrDefault();
                 }
                 return s;
             }catch(Exception e)

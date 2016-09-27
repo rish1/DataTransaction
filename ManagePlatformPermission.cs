@@ -14,7 +14,7 @@ namespace DataTransaction
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.PlatformPermissions.ToList();
+                return db.PlatformPermissions.Include(x => x.User).Include(x => x.Platform).ToList();
             }
         }
 
@@ -47,7 +47,7 @@ namespace DataTransaction
                 PlatformPermission s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities())
                 {
-                    s = db.PlatformPermissions.Where(m => m.Platform_Permission_ID == id).FirstOrDefault();
+                    s = db.PlatformPermissions.Where(m => m.Platform_Permission_ID == id).Include(x=>x.User).Include(x=>x.Platform).FirstOrDefault();
                 }
                 return s;
             }
