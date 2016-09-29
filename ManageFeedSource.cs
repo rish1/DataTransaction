@@ -10,6 +10,50 @@ namespace DataTransaction
 {
     public class ManageFeedSource
     {
+        public static FeedSource Deserialize(string Data)
+        {
+            try
+            {
+                return (FeedSource)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<FeedSource> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<FeedSource>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<FeedSource>)
+                {
+                    return (String)jsonHub.Serialize((List<FeedSource>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((FeedSource)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<FeedSource> GetAllFeedSource()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

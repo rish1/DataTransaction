@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageExchange
     {
+        public static Exchange Deserialize(string Data)
+        {
+            try
+            {
+                return (Exchange)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Exchange> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Exchange>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Exchange>)
+                {
+                    return (String)jsonHub.Serialize((List<Exchange>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Exchange)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Exchange> GetAllExchanges()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

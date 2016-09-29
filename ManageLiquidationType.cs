@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageLiquidationType
     {
+        public static Liquidation_Types Deserialize(string Data)
+        {
+            try
+            {
+                return (Liquidation_Types)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Liquidation_Types> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Liquidation_Types>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Liquidation_Types>)
+                {
+                    return (String)jsonHub.Serialize((List<Liquidation_Types>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Liquidation_Types)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Liquidation_Types> GetAllLiquidationType()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

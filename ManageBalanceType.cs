@@ -9,6 +9,50 @@ namespace DataTransaction
 {
    public class ManageBalanceType
     {
+        public static Balance_Types Deserialize(string Data)
+        {
+            try
+            {
+                return (Balance_Types)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Balance_Types> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Balance_Types>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Balance_Types>)
+                {
+                    return (String)jsonHub.Serialize((List<Balance_Types>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Balance_Types)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Balance_Types> getallBalanceType()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

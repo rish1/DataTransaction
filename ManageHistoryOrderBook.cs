@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageHistoryOrderBook
     {
+        public static History_OrderBook Deserialize(string Data)
+        {
+            try
+            {
+                return (History_OrderBook)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<History_OrderBook> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<History_OrderBook>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<History_OrderBook>)
+                {
+                    return (String)jsonHub.Serialize((List<History_OrderBook>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((History_OrderBook)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<History_OrderBook> GetAllHistoryOrderBook()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

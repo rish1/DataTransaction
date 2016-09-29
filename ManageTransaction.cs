@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageTransaction
     {
+        public static Transaction Deserialize(string Data)
+        {
+            try
+            {
+                return (Transaction)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<Transaction> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Transaction>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Transaction>)
+                {
+                    return (String)jsonHub.Serialize((List<Transaction>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Transaction)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Transaction> GetAllTransactions()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageExecutionType
     {
+        public static ExecutionType Deserialize(string Data)
+        {
+            try
+            {
+                return (ExecutionType)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<ExecutionType> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<ExecutionType>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<ExecutionType>)
+                {
+                    return (String)jsonHub.Serialize((List<ExecutionType>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((ExecutionType)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<ExecutionType> GetAllExecutionType()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageDOMSource
     {
+        public static DOMSource Deserialize(string Data)
+        {
+            try
+            {
+                return (DOMSource)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<DOMSource> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<DOMSource>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<DOMSource>)
+                {
+                    return (String)jsonHub.Serialize((List<DOMSource>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((DOMSource)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<DOMSource> GetAllDOMSource()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

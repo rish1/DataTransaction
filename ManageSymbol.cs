@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageSymbol
     {
+        public static Symbol Deserialize(string Data)
+        {
+            try
+            {
+                return (Symbol)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<Symbol> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Symbol>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Symbol>)
+                {
+                    return (String)jsonHub.Serialize((List<Symbol>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Symbol)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Symbol> GetAllSymbols()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

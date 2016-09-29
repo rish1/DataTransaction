@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageCurrency
     {
+        public static Currency Deserialize(string Data)
+        {
+            try
+            {
+                return (Currency)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Currency> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Currency>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Currency>)
+                {
+                    return (String)jsonHub.Serialize((List<Currency>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Currency)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Currency> GetAllCurrency()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

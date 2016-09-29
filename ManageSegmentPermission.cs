@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageSegmentPermission
     {
+        public static Segment_Permissions Deserialize(string Data)
+        {
+            try
+            {
+                return (Segment_Permissions)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<Segment_Permissions> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Segment_Permissions>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Segment_Permissions>)
+                {
+                    return (String)jsonHub.Serialize((List<Segment_Permissions>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Segment_Permissions)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Segment_Permissions> GetAllSegmentPermissions()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

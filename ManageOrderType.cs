@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageOrderType
     {
+        public static Order_Types Deserialize(string Data)
+        {
+            try
+            {
+                return (Order_Types)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<Order_Types> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Order_Types>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Order_Types>)
+                {
+                    return (String)jsonHub.Serialize((List<Order_Types>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Order_Types)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Order_Types> GetAllOrderType()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

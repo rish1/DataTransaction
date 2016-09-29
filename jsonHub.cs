@@ -14,7 +14,7 @@ namespace DataTransaction
             return JsonConvert.SerializeObject(o);
         }
 
-        public static object Deserialize(String s,String type)
+        public static object Deserialize(String s)
         {
             return JsonConvert.DeserializeObject(s);
         }

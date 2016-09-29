@@ -9,12 +9,55 @@ namespace DataTransaction
 {
    public class ManageUser
     {
-        
+        public static User Deserialize(string Data)
+        {
+            try
+            {
+                return (User)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<User> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<User>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<User>)
+                {
+                    return (String)jsonHub.Serialize((List<User>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((User)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<User> GetAllUsers()
         {
             using(ef_manager_newEntities db = new ef_manager_newEntities())
             {
-                return db.Users.Include(x => x.Balance).Include(x => x.Balance_Type).Include(x => x.City).Include(x => x.Currency).Include(x => x.ExecutionType1).Include(x => x.Liquidation_Types).Include(x => x.Office).ToList();
+                return db.Users.Include(x => x.Balance).Include(x => x.Balance_Type).Include(x => x.Currency).Include(x => x.ExecutionType1).Include(x => x.Liquidation_Types).Include(x => x.Office).ToList();
             }
         }
 
@@ -45,7 +88,7 @@ namespace DataTransaction
             try {
                 User s = null;
                 using (ef_manager_newEntities db = new ef_manager_newEntities()) {
-                    s = db.Users.Where(m => m.User_ID == id).Include(x=>x.Balance).Include(x=>x.Balance_Type).Include(x=>x.City).Include(x=>x.Currency).Include(x=>x.ExecutionType1).Include(x=>x.Liquidation_Types).Include(x=>x.Office).FirstOrDefault();
+                    s = db.Users.Where(m => m.User_ID == id).Include(x=>x.Balance).Include(x=>x.Balance_Type).Include(x=>x.Currency).Include(x=>x.ExecutionType1).Include(x=>x.Liquidation_Types).Include(x=>x.Office).FirstOrDefault();
                 }
                 return s;
             }catch(Exception e)

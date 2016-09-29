@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageRole
     {
+        public static Role Deserialize(string Data)
+        {
+            try
+            {
+                return (Role)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Role> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Role>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Role>)
+                {
+                    return (String)jsonHub.Serialize((List<Role>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Role)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Role> getAllRoles()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageModules
     {
+        public static AppModule Deserialize(string Data)
+        {
+            try
+            {
+                return (AppModule)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<AppModule> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<AppModule>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<AppModule>)
+                {
+                    return (String)jsonHub.Serialize((List<AppModule>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((AppModule)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<AppModule> GetAllAppModules()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

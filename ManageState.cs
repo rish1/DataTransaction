@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageState
     {
+        public static State Deserialize(string Data)
+        {
+            try
+            {
+                return (State)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<State> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<State>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<State>)
+                {
+                    return (String)jsonHub.Serialize((List<State>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((State)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<State> GetAllStates()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

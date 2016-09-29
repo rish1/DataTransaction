@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageHistoryTransaction
     {
+        public static History_Transactions Deserialize(string Data)
+        {
+            try
+            {
+                return (History_Transactions)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<History_Transactions> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<History_Transactions>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<History_Transactions>)
+                {
+                    return (String)jsonHub.Serialize((List<History_Transactions>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((History_Transactions)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
         public static List<History_Transactions> GetAllHistoryTransaction()
         {

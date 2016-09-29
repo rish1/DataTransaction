@@ -17,6 +17,50 @@ namespace DataTransaction
         //        return jsonHub.Serialize(db.Cities.ToList());
         //    }
         //}
+        public static City Deserialize(string Data)
+        {
+            try
+            {
+                return (City)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<City> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<City>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<City>){
+                    return (String)jsonHub.Serialize((List<City>)o);
+            }
+                else
+                {
+                    return (string)jsonHub.Serialize((City)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
         public static List<City> GetallCities()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

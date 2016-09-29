@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageCountry
     {
+        public static Country Deserialize(string Data)
+        {
+            try
+            {
+                return (Country)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Country> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Country>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Country>)
+                {
+                    return (String)jsonHub.Serialize((List<Country>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Country)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Country> GetallCountries()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

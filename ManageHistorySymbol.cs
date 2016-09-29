@@ -7,8 +7,53 @@ using System.Data.Entity;
 
 namespace DataTransaction
 {
+   
     public class ManageHistorySymbol
     {
+        public static HistorySymbol Deserialize(string Data)
+        {
+            try
+            {
+                return (HistorySymbol)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<HistorySymbol> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<HistorySymbol>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<HistorySymbol>)
+                {
+                    return (String)jsonHub.Serialize((List<HistorySymbol>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((HistorySymbol)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<HistorySymbol> GetAllHistorySymbols()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageSegment
     {
+        public static Segment Deserialize(string Data)
+        {
+            try
+            {
+                return (Segment)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<Segment> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Segment>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Segment>)
+                {
+                    return (String)jsonHub.Serialize((List<Segment>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Segment)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Segment> GetAllSegments()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

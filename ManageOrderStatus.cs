@@ -9,6 +9,50 @@ namespace DataTransaction
 {
     public class ManageOrderStatus
     {
+        public static Order_Status Deserialize(string Data)
+        {
+            try
+            {
+                return (Order_Status)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<Order_Status> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Order_Status>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Order_Status>)
+                {
+                    return (String)jsonHub.Serialize((List<Order_Status>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Order_Status)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Order_Status> GetAllOrderStatus()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

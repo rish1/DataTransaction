@@ -9,7 +9,50 @@ namespace DataTransaction
 {
     public class ManageMargin_type
     {
+        public static Margin_Types Deserialize(string Data)
+        {
+            try
+            {
+                return (Margin_Types)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
 
+        public static List<Margin_Types> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<Margin_Types>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<Margin_Types>)
+                {
+                    return (String)jsonHub.Serialize((List<Margin_Types>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((Margin_Types)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<Margin_Types> GetAllMarginType()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())

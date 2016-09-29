@@ -10,6 +10,50 @@ namespace DataTransaction
 {
     public class ManageContractKind
     {
+        public static ContractKind Deserialize(string Data)
+        {
+            try
+            {
+                return (ContractKind)jsonHub.Deserialize(Data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+
+        public static List<ContractKind> DeserializeList(string data)
+        {
+            try
+            {
+                return (List<ContractKind>)jsonHub.Deserialize(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
+        public static string Serialize(Object o)
+        {
+            try
+            {
+                if (o is List<ContractKind>)
+                {
+                    return (String)jsonHub.Serialize((List<ContractKind>)o);
+                }
+                else
+                {
+                    return (string)jsonHub.Serialize((ContractKind)o);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
+        }
         public static List<ContractKind> GetAllContractKind()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
