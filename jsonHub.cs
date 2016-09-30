@@ -11,7 +11,9 @@ namespace DataTransaction
     {
         public static string Serialize(object o)
         {
-            return JsonConvert.SerializeObject(o);
+            return JsonConvert.SerializeObject(o, Formatting.Indented, new JsonSerializerSettings
+            { ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
         }
 
         public static object Deserialize<T>(String s)
