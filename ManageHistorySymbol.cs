@@ -10,11 +10,11 @@ namespace DataTransaction
    
     public class ManageHistorySymbol
     {
-        public static HistorySymbol Deserialize(string Data)
+        public static HistorySymbol Deserialize<T>(string Data)
         {
             try
             {
-                return (HistorySymbol)jsonHub.Deserialize(Data);
+                return (HistorySymbol)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -23,11 +23,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<HistorySymbol> DeserializeList(string data)
+        public static List<HistorySymbol> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<HistorySymbol>)jsonHub.Deserialize(data);
+                return (List<HistorySymbol>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

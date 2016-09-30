@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageLiquidationType
     {
-        public static Liquidation_Types Deserialize(string Data)
+        public static Liquidation_Types Deserialize<T>(string Data)
         {
             try
             {
-                return (Liquidation_Types)jsonHub.Deserialize(Data);
+                return (Liquidation_Types)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Liquidation_Types> DeserializeList(string data)
+        public static List<Liquidation_Types> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Liquidation_Types>)jsonHub.Deserialize(data);
+                return (List<Liquidation_Types>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

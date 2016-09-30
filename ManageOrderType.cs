@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageOrderType
     {
-        public static Order_Types Deserialize(string Data)
+        public static Order_Types Deserialize<T>(string Data)
         {
             try
             {
-                return (Order_Types)jsonHub.Deserialize(Data);
+                return (Order_Types)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Order_Types> DeserializeList(string data)
+        public static List<Order_Types> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Order_Types>)jsonHub.Deserialize(data);
+                return (List<Order_Types>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

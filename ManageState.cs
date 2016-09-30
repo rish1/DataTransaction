@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageState
     {
-        public static State Deserialize(string Data)
+        public static State Deserialize<T>(string Data)
         {
             try
             {
-                return (State)jsonHub.Deserialize(Data);
+                return (State)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<State> DeserializeList(string data)
+        public static List<State> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<State>)jsonHub.Deserialize(data);
+                return (List<State>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

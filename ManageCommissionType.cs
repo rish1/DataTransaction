@@ -9,11 +9,11 @@ namespace DataTransaction
 {
    public class ManageCommissionType
     {
-        public static Commission_Types Deserialize(string Data)
+        public static Commission_Types Deserialize<T>(string Data)
         {
             try
             {
-                return (Commission_Types)jsonHub.Deserialize(Data);
+                return (Commission_Types)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Commission_Types> DeserializeList(string data)
+        public static List<Commission_Types> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Commission_Types>)jsonHub.Deserialize(data);
+                return (List<Commission_Types>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

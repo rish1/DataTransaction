@@ -17,11 +17,11 @@ namespace DataTransaction
         //        return jsonHub.Serialize(db.Cities.ToList());
         //    }
         //}
-        public static City Deserialize(string Data)
+        public static City Deserialize<T>(string Data)
         {
             try
             {
-                return (City)jsonHub.Deserialize(Data);
+                return (City)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -30,11 +30,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<City> DeserializeList(string data)
+        public static List<City> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<City>)jsonHub.Deserialize(data);
+                return (List<City>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManagePlatform
     {
-        public static Platform Deserialize(string Data)
+        public static Platform Deserialize<T>(string Data)
         {
             try
             {
-                return (Platform)jsonHub.Deserialize(Data);
+                return (Platform)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Platform> DeserializeList(string data)
+        public static List<Platform> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Platform>)jsonHub.Deserialize(data);
+                return (List<Platform>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

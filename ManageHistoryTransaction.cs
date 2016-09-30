@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageHistoryTransaction
     {
-        public static History_Transactions Deserialize(string Data)
+        public static History_Transactions Deserialize<T>(string Data)
         {
             try
             {
-                return (History_Transactions)jsonHub.Deserialize(Data);
+                return (History_Transactions)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<History_Transactions> DeserializeList(string data)
+        public static List<History_Transactions> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<History_Transactions>)jsonHub.Deserialize(data);
+                return (List<History_Transactions>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

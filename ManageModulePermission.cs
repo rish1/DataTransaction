@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageModulePermission
     {
-        public static ModulePermission Deserialize(string Data)
+        public static ModulePermission Deserialize<T>(string Data)
         {
             try
             {
-                return (ModulePermission)jsonHub.Deserialize(Data);
+                return (ModulePermission)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<ModulePermission> DeserializeList(string data)
+        public static List<ModulePermission> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<ModulePermission>)jsonHub.Deserialize(data);
+                return (List<ModulePermission>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

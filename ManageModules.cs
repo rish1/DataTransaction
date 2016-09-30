@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageModules
     {
-        public static AppModule Deserialize(string Data)
+        public static AppModule Deserialize<T>(string Data)
         {
             try
             {
-                return (AppModule)jsonHub.Deserialize(Data);
+                return (AppModule)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<AppModule> DeserializeList(string data)
+        public static List<AppModule> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<AppModule>)jsonHub.Deserialize(data);
+                return (List<AppModule>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

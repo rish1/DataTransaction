@@ -10,11 +10,11 @@ namespace DataTransaction
 {
     public class ManageContractKind
     {
-        public static ContractKind Deserialize(string Data)
+        public static ContractKind Deserialize<T>(string Data)
         {
             try
             {
-                return (ContractKind)jsonHub.Deserialize(Data);
+                return (ContractKind)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -23,11 +23,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<ContractKind> DeserializeList(string data)
+        public static List<ContractKind> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<ContractKind>)jsonHub.Deserialize(data);
+                return (List<ContractKind>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

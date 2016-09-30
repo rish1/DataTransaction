@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageSector
     {
-        public static Sector Deserialize(string Data)
+        public static Sector Deserialize<T>(string Data)
         {
             try
             {
-                return (Sector)jsonHub.Deserialize(Data);
+                return (Sector)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Sector> DeserializeList(string data)
+        public static List<Sector> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Sector>)jsonHub.Deserialize(data);
+                return (List<Sector>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

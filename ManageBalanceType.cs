@@ -9,11 +9,11 @@ namespace DataTransaction
 {
    public class ManageBalanceType
     {
-        public static Balance_Types Deserialize(string Data)
+        public static Balance_Types Deserialize<T>(string Data)
         {
             try
             {
-                return (Balance_Types)jsonHub.Deserialize(Data);
+                return (Balance_Types)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Balance_Types> DeserializeList(string data)
+        public static List<Balance_Types> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Balance_Types>)jsonHub.Deserialize(data);
+                return (List<Balance_Types>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

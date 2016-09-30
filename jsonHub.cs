@@ -14,10 +14,10 @@ namespace DataTransaction
             return JsonConvert.SerializeObject(o);
         }
 
-        public static object Deserialize(String s)
+        public static object Deserialize<T>(String s)
         {
-            return JsonConvert.DeserializeObject(s);
-        }
+            return JsonConvert.DeserializeObject<T>(s);
+        }   
 
     }
 }

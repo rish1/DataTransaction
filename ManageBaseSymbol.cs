@@ -9,11 +9,11 @@ namespace DataTransaction
   public  class ManageBaseSymbol
     {
         // ef_manager_newEntities db = new ef_manager_newEntities();
-        public static Base_Symbol Deserialize(string Data)
+        public static Base_Symbol Deserialize<T>(string Data)
         {
             try
             {
-                return (Base_Symbol)jsonHub.Deserialize(Data);
+                return (Base_Symbol)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Base_Symbol> DeserializeList(string data)
+        public static List<Base_Symbol> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Base_Symbol>)jsonHub.Deserialize(data);
+                return (List<Base_Symbol>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

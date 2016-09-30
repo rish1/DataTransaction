@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageDOMSource
     {
-        public static DOMSource Deserialize(string Data)
+        public static DOMSource Deserialize<T>(string Data)
         {
             try
             {
-                return (DOMSource)jsonHub.Deserialize(Data);
+                return (DOMSource)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<DOMSource> DeserializeList(string data)
+        public static List<DOMSource> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<DOMSource>)jsonHub.Deserialize(data);
+                return (List<DOMSource>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

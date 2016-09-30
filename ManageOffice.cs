@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageOffice
     {
-        public static Office Deserialize(string Data)
+        public static Office Deserialize<T>(string Data)
         {
             try
             {
-                return (Office)jsonHub.Deserialize(Data);
+                return (Office)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Office> DeserializeList(string data)
+        public static List<Office> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Office>)jsonHub.Deserialize(data);
+                return (List<Office>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

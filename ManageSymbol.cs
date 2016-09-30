@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageSymbol
     {
-        public static Symbol Deserialize(string Data)
+        public static Symbol Deserialize<T>(string Data)
         {
             try
             {
-                return (Symbol)jsonHub.Deserialize(Data);
+                return (Symbol)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Symbol> DeserializeList(string data)
+        public static List<Symbol> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Symbol>)jsonHub.Deserialize(data);
+                return (List<Symbol>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

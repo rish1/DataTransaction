@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageExchange
     {
-        public static Exchange Deserialize(string Data)
+        public static Exchange Deserialize<T>(string Data)
         {
             try
             {
-                return (Exchange)jsonHub.Deserialize(Data);
+                return (Exchange)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Exchange> DeserializeList(string data)
+        public static List<Exchange> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Exchange>)jsonHub.Deserialize(data);
+                return (List<Exchange>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

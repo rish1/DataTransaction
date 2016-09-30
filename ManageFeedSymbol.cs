@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageFeedSymbol
     {
-        public static FeedSymbol Deserialize(string Data)
+        public static FeedSymbol Deserialize<T>(string Data)
         {
             try
             {
-                return (FeedSymbol)jsonHub.Deserialize(Data);
+                return (FeedSymbol)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<FeedSymbol> DeserializeList(string data)
+        public static List<FeedSymbol> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<FeedSymbol>)jsonHub.Deserialize(data);
+                return (List<FeedSymbol>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

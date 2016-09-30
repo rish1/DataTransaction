@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageMargin_type
     {
-        public static Margin_Types Deserialize(string Data)
+        public static Margin_Types Deserialize<T>(string Data)
         {
             try
             {
-                return (Margin_Types)jsonHub.Deserialize(Data);
+                return (Margin_Types)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Margin_Types> DeserializeList(string data)
+        public static List<Margin_Types> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Margin_Types>)jsonHub.Deserialize(data);
+                return (List<Margin_Types>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

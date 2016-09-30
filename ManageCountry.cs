@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManageCountry
     {
-        public static Country Deserialize(string Data)
+        public static Country Deserialize<T>(string Data)
         {
             try
             {
-                return (Country)jsonHub.Deserialize(Data);
+                return (Country)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<Country> DeserializeList(string data)
+        public static List<Country> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<Country>)jsonHub.Deserialize(data);
+                return (List<Country>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

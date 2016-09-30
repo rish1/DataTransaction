@@ -9,11 +9,11 @@ namespace DataTransaction
 {
     public class ManagePlatformPermission
     {
-        public static PlatformPermission Deserialize(string Data)
+        public static PlatformPermission Deserialize<T>(string Data)
         {
             try
             {
-                return (PlatformPermission)jsonHub.Deserialize(Data);
+                return (PlatformPermission)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -22,11 +22,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<PlatformPermission> DeserializeList(string data)
+        public static List<PlatformPermission> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<PlatformPermission>)jsonHub.Deserialize(data);
+                return (List<PlatformPermission>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {

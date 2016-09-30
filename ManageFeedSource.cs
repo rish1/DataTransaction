@@ -10,11 +10,11 @@ namespace DataTransaction
 {
     public class ManageFeedSource
     {
-        public static FeedSource Deserialize(string Data)
+        public static FeedSource Deserialize<T>(string Data)
         {
             try
             {
-                return (FeedSource)jsonHub.Deserialize(Data);
+                return (FeedSource)jsonHub.Deserialize<T>(Data);
             }
             catch (Exception e)
             {
@@ -23,11 +23,11 @@ namespace DataTransaction
             }
         }
 
-        public static List<FeedSource> DeserializeList(string data)
+        public static List<FeedSource> DeserializeList<T>(string data)
         {
             try
             {
-                return (List<FeedSource>)jsonHub.Deserialize(data);
+                return (List<FeedSource>)jsonHub.Deserialize<T>(data);
             }
             catch (Exception e)
             {
