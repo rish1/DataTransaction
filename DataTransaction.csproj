@@ -38,8 +38,16 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.12.0.817, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Core.2.12.0\lib\net40-Client\NuGet.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -144,6 +152,7 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ManageAdmin.cs" />
+    <Compile Include="ManageAppModules.cs" />
     <Compile Include="ManageBalance.cs" />
     <Compile Include="ManageBalanceType.cs" />
     <Compile Include="ManageBaseSymbol.cs" />
@@ -166,7 +175,6 @@
     <Compile Include="ManageLiquidationType.cs" />
     <Compile Include="ManageMargin_type.cs" />
     <Compile Include="ManageModulePermission.cs" />
-    <Compile Include="ManageModules.cs" />
     <Compile Include="ManageOffice.cs" />
     <Compile Include="ManageOrderBook.cs" />
     <Compile Include="ManageOrderStatus.cs" />

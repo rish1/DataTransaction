@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Transaction_Types> GetAllTransactions()
+        public static List<Transaction_Types> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddTransactionType(Transaction_Types tt)
+        public static bool Insert(Transaction_Types tt)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Transaction_Types GetTransactionTypeById(int? id)
+        public static Transaction_Types GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsTransactiontypeExist(Transaction_Types tt)
+        public static bool IsExist(Transaction_Types tt)
         {
-            return GetTransactionTypeById(tt.Transaction_Type_ID) == null ? false : true;
+            return GetById(tt.Transaction_Type_ID) == null ? false : true;
         }
 
-        public static bool EditTransactiontype(Transaction_Types tt)
+        public static bool Edit(Transaction_Types tt)
         {
             if (tt == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteTransactiontype(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Role> getAllRoles()
+        public static List<Role> getAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddRole(Role r)
+        public static bool Insert(Role r)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static Role GetRoleById(int? id)
+        public static Role GetById(int? id)
         {
             if (id == null)
             {
@@ -98,11 +98,11 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static bool IsRoleExist(Role r)
+        public static bool IsExist(Role r)
         {
-            return GetRoleById(r.Role_ID) == null ? false : true;
+            return GetById(r.Role_ID) == null ? false : true;
         }
-        public static bool EditRole(Role r)
+        public static bool Edit(Role r)
         {
             if (r == null)
             {
@@ -123,7 +123,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static bool  DeleteRole(int ID)
+        public static bool  Delete(int ID)
         {
             try
             {

@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Currency> GetAllCurrency()
+        public static List<Currency> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddCurrency(Currency c)
+        public static bool Insert(Currency c)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Currency GetCurrencyById(int? id)
+        public static Currency GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsCurrencyExist(Currency c)
+        public static bool IsExist(Currency c)
         {
-            return GetCurrencyById(c.Currency_ID) == null ? false : true;
+            return GetById(c.Currency_ID) == null ? false : true;
         }
 
-        public static bool EditCurrency(Currency c)
+        public static bool Edit(Currency c)
         {
             if (c == null)
             {
@@ -129,7 +129,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteCurrency(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

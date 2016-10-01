@@ -54,7 +54,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<ContractKind> GetAllContractKind()
+        public static List<ContractKind> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -62,7 +62,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddContractKind(ContractKind ck)
+        public static bool Insert(ContractKind ck)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace DataTransaction
             }
         }
 
-        public static ContractKind getContractKinfById(int? id)
+        public static ContractKind GetById(int? id)
         {
             if (id == null)
             {
@@ -102,12 +102,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsContractKindExist(ContractKind ck)
+        public static bool IsExist(ContractKind ck)
         {
-            return getContractKinfById(ck.Contract_Kind_ID) == null ? false : true;
+            return GetById(ck.Contract_Kind_ID) == null ? false : true;
         }
 
-        public static bool EditContractKind(ContractKind ck)
+        public static bool Edit(ContractKind ck)
         {
             if (ck == null)
             {
@@ -130,7 +130,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteContractKind(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

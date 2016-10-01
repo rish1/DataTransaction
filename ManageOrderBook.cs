@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<OrderBook> GetAllOrderBook()
+        public static List<OrderBook> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddOrderBook(OrderBook ob)
+        public static bool Insert(OrderBook ob)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static OrderBook GetOrderBookById(int? id)
+        public static OrderBook GetById(int? id)
         {
             if (id == null)
             {
@@ -100,13 +100,13 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static bool IsOrderBookExist(OrderBook ob)
+        public static bool IsExist(OrderBook ob)
         {
-            return GetOrderBookById(ob.Order_ID) == null ? false : true;
+            return GetById(ob.Order_ID) == null ? false : true;
 
         }
 
-        public static bool EditOrderBook(OrderBook ob)
+        public static bool Edit(OrderBook ob)
         {
             if (ob == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteOrderBook(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

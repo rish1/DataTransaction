@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<ModulePermission> GetAllModulePermission()
+        public static List<ModulePermission> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddModulePermission(ModulePermission mp)
+        public static bool Insert(ModulePermission mp)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static ModulePermission GetModulePermissionById(int? id)
+        public static ModulePermission GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsModulePermissionExist(ModulePermission mp)
+        public static bool IsExist(ModulePermission mp)
         {
-            return GetModulePermissionById(mp.Module_Permission_ID) == null ? false : true;
+            return GetById(mp.Module_Permission_ID) == null ? false : true;
         }
 
-        public static bool EditModulePermission(ModulePermission mp)
+        public static bool Edit(ModulePermission mp)
         {
             if (mp == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteModulePermission(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

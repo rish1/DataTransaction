@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<ExecutionType> GetAllExecutionType()
+        public static List<ExecutionType> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddExecutionType(ExecutionType et)
+        public static bool Insert(ExecutionType et)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static ExecutionType GetExecutionTypeById(int? id)
+        public static ExecutionType GetById(int? id)
         {
 
             if (id == null)
@@ -102,12 +102,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsExecutionTypeExist(ExecutionType et)
+        public static bool IsExist(ExecutionType et)
         {
-            return GetExecutionTypeById(et.ExecutionTypeID) == null ? false : true;
+            return GetById(et.ExecutionTypeID) == null ? false : true;
         }
 
-        public static bool EditExecutionType(ExecutionType et)
+        public static bool Edit(ExecutionType et)
         {
             if (et == null)
             {
@@ -130,7 +130,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteExecutionType(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

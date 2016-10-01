@@ -54,7 +54,7 @@ namespace DataTransaction
             }
         }
 
-        public static List<History_Transactions> GetAllHistoryTransaction()
+        public static List<History_Transactions> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -62,7 +62,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddHistoryTransaction(History_Transactions ht)
+        public static bool Insert(History_Transactions ht)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace DataTransaction
             }
         }
 
-        public static History_Transactions GetHistoryTransById(int? id)
+        public static History_Transactions GetById(int? id)
         {
             if (id == null)
             {
@@ -103,12 +103,12 @@ namespace DataTransaction
 
         }
 
-        public static bool IsHistoryTransExist(History_Transactions ht)
+        public static bool IsExist(History_Transactions ht)
         {
-            return GetHistoryTransById(ht.Transaction_ID) == null ? false : true;
+            return GetById(ht.Transaction_ID) == null ? false : true;
         }
 
-        public static bool EditHistoryTransaction(History_Transactions ht)
+        public static bool Edit(History_Transactions ht)
         {
             if (ht == null)
             {
@@ -129,7 +129,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static bool DeleteHistoryTransaction(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

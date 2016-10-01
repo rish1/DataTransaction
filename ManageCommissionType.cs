@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Commission_Types> GetAllCommissionType()
+        public static List<Commission_Types> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddCommissionType(Commission_Types ct)
+        public static bool Insert(Commission_Types ct)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Commission_Types getComTypeById(int? id)
+        public static Commission_Types GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsComTypeExist(Commission_Types ct)
+        public static bool IsExist(Commission_Types ct)
         {
-            return getComTypeById(ct.Commission_Type_ID) == null ? false : true;
+            return GetById(ct.Commission_Type_ID) == null ? false : true;
         }
 
-        public static bool EditComType(Commission_Types ct)
+        public static bool Edit(Commission_Types ct)
         {
             if (ct == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteComType(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

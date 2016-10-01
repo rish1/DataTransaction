@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<DOMSource> GetAllDOMSource()
+        public static List<DOMSource> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddDOMSource(DOMSource dom)
+        public static bool Insert(DOMSource dom)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static DOMSource GetDOMSourceById(int? id)
+        public static DOMSource GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsDOMSourceExist(DOMSource dom)
+        public static bool IsExist(DOMSource dom)
         {
-            return GetDOMSourceById(dom.DOM_Source_ID) == null ? false : true;
+            return GetById(dom.DOM_Source_ID) == null ? false : true;
         }
 
-        public static bool EditDOMSource(DOMSource dom)
+        public static bool Edit(DOMSource dom)
         {
             if (dom == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteDomSource(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

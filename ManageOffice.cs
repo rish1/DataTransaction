@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Office> GetAllOffice()
+        public static List<Office> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddOffice(Office o)
+        public static bool Insert(Office o)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Office GetOfficeById(int? id)
+        public static Office GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsOfficeExist(Office o)
+        public static bool IsExist(Office o)
         {
-            return GetOfficeById(o.Office_ID) == null ? false : true;
+            return GetById(o.Office_ID) == null ? false : true;
         }
 
-        public static bool EditOffice(Office o)
+        public static bool Edit(Office o)
         {
             if (o == null)
             {
@@ -127,7 +127,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static bool DeleteOffice(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

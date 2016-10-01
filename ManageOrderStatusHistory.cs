@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Order_Status_History> GetAllOrderStatusHistory()
+        public static List<Order_Status_History> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddOrderstatusHistory(Order_Status_History osh)
+        public static bool Insert(Order_Status_History osh)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Order_Status_History GetOrderStatusHistoryById(int? id)
+        public static Order_Status_History GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsOrderStatusHistoryExist(Order_Status_History osh)
+        public static bool IsExist(Order_Status_History osh)
         {
-            return GetOrderStatusHistoryById(osh.Order_Status_History_ID) == null ? false : true;
+            return GetById(osh.Order_Status_History_ID) == null ? false : true;
         }
 
-        public static bool EditOrderStatusHistory(Order_Status_History osh)
+        public static bool Edit(Order_Status_History osh)
         {
             if (osh == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteOrderStatusHistory(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

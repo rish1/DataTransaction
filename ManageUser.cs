@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<User> GetAllUsers()
+        public static List<User> GetAll()
         {
             using(ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddUser(User u)
+        public static bool Insert(User u)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static User GetUserById(int? id)
+        public static User GetById(int? id)
         {
             if (id == null)
             {
@@ -98,12 +98,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsUserExist(User u)
+        public static bool IsExist(User u)
         {
-            return GetUserById(u.User_ID) == null ? false : true;
+            return GetById(u.User_ID) == null ? false : true;
         }
 
-        public static bool EditUser(User u)
+        public static bool Edit(User u)
         {
             if (u == null)
             {
@@ -125,7 +125,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteUser(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

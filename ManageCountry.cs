@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Country> GetallCountries()
+        public static List<Country> Getall()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddCountry(Country c)
+        public static bool Insert(Country c)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Country getCountryById(int? id)
+        public static Country GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsCountryExist(Country c)
+        public static bool IsExist(Country c)
         {
-            return getCountryById(c.Country_ID) == null ? false : true;
+            return GetById(c.Country_ID) == null ? false : true;
         }
 
-        public static bool EditCountry(Country c)
+        public static bool Edit(Country c)
         {
             if (c == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteCountry(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

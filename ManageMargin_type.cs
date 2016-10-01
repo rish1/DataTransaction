@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Margin_Types> GetAllMarginType()
+        public static List<Margin_Types> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddMargintype(Margin_Types mt)
+        public static bool Insert(Margin_Types mt)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Margin_Types GetMarginTypeById(int? id)
+        public static Margin_Types GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsMarginTypeExist(Margin_Types mt)
+        public static bool IsExist(Margin_Types mt)
         {
-            return GetMarginTypeById(mt.Margin_Type_ID) == null ? false : true;
+            return GetById(mt.Margin_Type_ID) == null ? false : true;
         }
 
-        public static bool EditMarginType(Margin_Types ht)
+        public static bool Edit(Margin_Types ht)
         {
             if (ht == null)
             {
@@ -129,7 +129,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteMarginType(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

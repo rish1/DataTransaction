@@ -54,7 +54,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<FeedSource> GetAllFeedSource()
+        public static List<FeedSource> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -62,7 +62,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddFeedSource(FeedSource fs)
+        public static bool Insert(FeedSource fs)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace DataTransaction
             }
         }
 
-        public static FeedSource GetFeedSourceById(int? id)
+        public static FeedSource GetById(int? id)
         {
             if (id == null)
             {
@@ -102,11 +102,11 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsFeedSourceExist(FeedSource fs)
+        public static bool IsExist(FeedSource fs)
         {
-            return GetFeedSourceById(fs.Feed_Source_ID) == null ? false : true;
+            return GetById(fs.Feed_Source_ID) == null ? false : true;
         }
-        public static bool EditFeedSource(FeedSource fs)
+        public static bool Edit(FeedSource fs)
         {
             if (fs == null)
             {
@@ -127,7 +127,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static bool DeleteFeedSource(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

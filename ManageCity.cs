@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static List<City> GetallCities()
+        public static List<City> Getall()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -69,7 +69,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddCity(City c)
+        public static bool Insert(City c)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace DataTransaction
             }
         }
 
-        public static City GetCityId(int? id)
+        public static City GetById(int? id)
         {
             if (id == null)
             {
@@ -109,12 +109,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool isCityExist(City c)
+        public static bool IsExist(City c)
         {
-            return GetCityId(c.City_ID) == null ? false : true;
+            return GetById(c.City_ID) == null ? false : true;
         }
 
-        public static bool EditCity(City c)
+        public static bool Edit(City c)
         {
             if (c == null)
             {
@@ -136,7 +136,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteCity(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

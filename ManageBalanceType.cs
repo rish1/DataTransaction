@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Balance_Types> getallBalanceType()
+        public static List<Balance_Types> Getall()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddBalanceType(Balance_Types bt)
+        public static bool Insert(Balance_Types bt)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Balance_Types getBalTypeById(int? id)
+        public static Balance_Types GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
 
         }
-        public static bool BalanceTypeExist(Balance_Types bt)
+        public static bool IsExist(Balance_Types bt)
         {
-            return getBalTypeById(bt.Balance_Type_ID) == null ? false : true;
+            return GetById(bt.Balance_Type_ID) == null ? false : true;
         }
 
-        public static bool EditBalanceType(Balance_Types bt)
+        public static bool Edit(Balance_Types bt)
         {
             if (bt == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteBalanceType(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

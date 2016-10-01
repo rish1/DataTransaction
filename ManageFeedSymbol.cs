@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<FeedSymbol> GetAllFeedSymbols()
+        public static List<FeedSymbol> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddFeedSymbol(FeedSymbol fs)
+        public static bool Insert(FeedSymbol fs)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static FeedSymbol GetFeedSymbolById(int? id)
+        public static FeedSymbol GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsFeedSymbolExist(FeedSymbol fs)
+        public static bool IsExist(FeedSymbol fs)
         {
-            return GetFeedSymbolById(fs.Feed_Symbol_ID) == null ? false : true;
+            return GetById(fs.Feed_Symbol_ID) == null ? false : true;
         }
 
-        public static bool EditFeedSymbol(FeedSymbol fs)
+        public static bool Edit(FeedSymbol fs)
         {
             if (fs == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteFeedSymbol(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

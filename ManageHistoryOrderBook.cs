@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<History_OrderBook> GetAllHistoryOrderBook()
+        public static List<History_OrderBook> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddHistoryOrderBook(History_OrderBook hob)
+        public static bool Insert(History_OrderBook hob)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static History_OrderBook GetHOBById(int? id)
+        public static History_OrderBook GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsHOBExist(History_OrderBook hob)
+        public static bool IsExist(History_OrderBook hob)
         {
-            return GetHOBById(hob.History_Order_ID) == null ? false : true;
+            return GetById(hob.History_Order_ID) == null ? false : true;
         }
 
-        public static bool EditHoB(History_OrderBook hob)
+        public static bool Edit(History_OrderBook hob)
         {
             if (hob == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool deleteHistoryOrderBook(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

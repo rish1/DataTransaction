@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Symbol> GetAllSymbols()
+        public static List<Symbol> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddSymbol(Symbol sy)
+        public static bool Insert(Symbol sy)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Symbol GetSymbolById(int? id)
+        public static Symbol GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsSymbolExist(Symbol s)
+        public static bool IsExist(Symbol s)
         {
-            return GetSymbolById(s.Symbol_ID) == null ? false : true;
+            return GetById(s.Symbol_ID) == null ? false : true;
         }
 
-        public static bool EditSymbol(Symbol ss)
+        public static bool Edit(Symbol ss)
         {
             if (ss == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteSymbol(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

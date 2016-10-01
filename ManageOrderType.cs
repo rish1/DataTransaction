@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Order_Types> GetAllOrderType()
+        public static List<Order_Types> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddOrderType(Order_Types ot)
+        public static bool Insert(Order_Types ot)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Order_Types GetOrderTypeById(int? id)
+        public static Order_Types GetById(int? id)
         {
             if (id == null)
             {
@@ -103,13 +103,13 @@ namespace DataTransaction
 
         }
 
-        public static bool IsOrderTypeExist(Order_Types ot)
+        public static bool IsExist(Order_Types ot)
         {
-            return GetOrderTypeById(ot.Order_Type_ID) == null ? false : true;
+            return GetById(ot.Order_Type_ID) == null ? false : true;
 
         }
 
-        public static bool EditOrderType(Order_Types ot)
+        public static bool Edit(Order_Types ot)
         {
             if (ot == null)
             {
@@ -132,7 +132,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteOrderType(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

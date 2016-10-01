@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<History_Source> GetAllHistorySource()
+        public static List<History_Source> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddHistorySource(History_Source hs)
+        public static bool Insert(History_Source hs)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static History_Source GetHistorySourceById(int? id)
+        public static History_Source GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsHistorySourceExist(History_Source hs)
+        public static bool IsExist(History_Source hs)
         {
-            return GetHistorySourceById(hs.History_Source_ID) == null ? false : true;
+            return GetById(hs.History_Source_ID) == null ? false : true;
         }
 
-        public static bool EditHistorySource(History_Source hs)
+        public static bool Edit(History_Source hs)
         {
             if (hs == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteHistorySource(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

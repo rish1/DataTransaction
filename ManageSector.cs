@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Sector> GetAllSectors()
+        public static List<Sector> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddSector(Sector s)
+        public static bool Insert(Sector s)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Sector GetSectorById(int? id)
+        public static Sector GetById(int? id)
         {
             if (id == null)
             {
@@ -100,12 +100,12 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static bool IsSectorExist(Sector s)
+        public static bool IsExist(Sector s)
         {
-            return GetSectorById(s.Sector_ID) == null ? false : true;
+            return GetById(s.Sector_ID) == null ? false : true;
         }
 
-        public static bool EditSector(Sector s)
+        public static bool Edit(Sector s)
         {
             if (s == null)
             {
@@ -127,7 +127,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteSector(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

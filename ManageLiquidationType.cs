@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Liquidation_Types> GetAllLiquidationType()
+        public static List<Liquidation_Types> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddLiquidationType(Liquidation_Types lt)
+        public static bool Insert(Liquidation_Types lt)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Liquidation_Types GetLiquidationTypeById(int? id)
+        public static Liquidation_Types GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsLiquidationTypeExist(Liquidation_Types lt)
+        public static bool IsExist(Liquidation_Types lt)
         {
-            return GetLiquidationTypeById(lt.Liqudation_Type_ID) == null ? false : true;
+            return GetById(lt.Liqudation_Type_ID) == null ? false : true;
         }
 
-        public static bool EditLiquidationType(Liquidation_Types lt)
+        public static bool Edit(Liquidation_Types lt)
         {
             if (lt == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteLiquidationType(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

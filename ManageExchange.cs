@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Exchange> GetAllExchanges()
+        public static List<Exchange> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddExchange(Exchange ex)
+        public static bool Insert(Exchange ex)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Exchange GetExchangeById(int? id)
+        public static Exchange GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsExchangeExist(Exchange ex)
+        public static bool IsExist(Exchange ex)
         {
-            return GetExchangeById(ex.Exchange_ID) == null ? false : true;
+            return GetById(ex.Exchange_ID) == null ? false : true;
         }
 
-        public static bool EditExchange(Exchange ex)
+        public static bool Edit(Exchange ex)
         {
             if (ex == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteExchange(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<State> GetAllStates()
+        public static List<State> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddState(State s)
+        public static bool Insert(State s)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static State GetStateById(int? id)
+        public static State GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsStateExist(State s)
+        public static bool IsExist(State s)
         {
-            return GetStateById(s.State_ID) == null ? false : true;
+            return GetById(s.State_ID) == null ? false : true;
         }
 
-        public static bool EditState(State ss)
+        public static bool Edit(State ss)
         {
             try
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteState(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

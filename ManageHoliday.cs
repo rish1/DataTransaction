@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Holiday> GetAllHolidays()
+        public static List<Holiday> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddHoliday(Holiday h)
+        public static bool Insert(Holiday h)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Holiday GetHolidayById(int? id)
+        public static Holiday GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsHolidayExist(Holiday h)
+        public static bool IsExist(Holiday h)
         {
-            return GetHolidayById(h.Holiday_ID) == null ? false : true;
+            return GetById(h.Holiday_ID) == null ? false : true;
         }
 
-        public static bool EditHoliday(Holiday h)
+        public static bool Edit(Holiday h)
         {
             if (h == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteHoliday(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

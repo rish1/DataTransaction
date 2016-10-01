@@ -60,7 +60,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Admin> getAllAdmins()
+        public static List<Admin> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -68,7 +68,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool InsertAdmin(Admin admin)
+        public static bool Insert(Admin admin)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace DataTransaction
             }
         }
 
-        public static Admin getAdminByID(int? id)
+        public static Admin GetByID(int? id)
         {
             if (id == null)
             {
@@ -108,12 +108,12 @@ namespace DataTransaction
             }
         }
 
-        public bool adminExist(Admin a)
+        public bool IsExist(Admin a)
         {
-            return getAdminByID(a.Admin_ID) == null ? false : true;
+            return GetByID(a.Admin_ID) == null ? false : true;
         }
 
-        public static bool EditAdmin(Admin admin)
+        public static bool Edit(Admin admin)
         {
             if (admin == null)
             {
@@ -134,7 +134,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static bool DeleteAdmin(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

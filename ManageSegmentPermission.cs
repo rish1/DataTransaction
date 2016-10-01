@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Segment_Permissions> GetAllSegmentPermissions()
+        public static List<Segment_Permissions> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddSegmentPermission(Segment_Permissions sp)
+        public static bool Insert(Segment_Permissions sp)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Segment_Permissions GetSegmentPermissionById(int? id)
+        public static Segment_Permissions GetById(int? id)
         {
             if (id == null)
             {
@@ -100,12 +100,12 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static bool IsSegmentPermissionExist(Segment_Permissions sp)
+        public static bool IsExist(Segment_Permissions sp)
         {
-            return GetSegmentPermissionById(sp.Segment_Permission_ID) == null ? false : true;
+            return GetById(sp.Segment_Permission_ID) == null ? false : true;
         }
 
-        public static bool EditSegmentPermission(Segment_Permissions sp)
+        public static bool Edit(Segment_Permissions sp)
         {
             if (sp == null)
             {
@@ -127,7 +127,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteSegmentPermission(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

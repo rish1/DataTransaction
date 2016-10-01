@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Platform> GetAllPlatforms()
+        public static List<Platform> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddPlatform(Platform p)
+        public static bool Insert(Platform p)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Platform GetPlatformById(int? id)
+        public static Platform GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsPlatformExist(Platform p)
+        public static bool IsExist(Platform p)
         {
-            return GetPlatformById(p.Platform_ID) == null ? false : true;
+            return GetById(p.Platform_ID) == null ? false : true;
         }
 
-        public static bool EditPlatform(Platform p)
+        public static bool Edit(Platform p)
         {
             if (p == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeletePlatform(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

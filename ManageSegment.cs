@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<Segment> GetAllSegments()
+        public static List<Segment> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddSegment(Segment sg)
+        public static bool Insert(Segment sg)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static Segment GetSectorById(int? id)
+        public static Segment GetById(int? id)
         {
             if (id == null)
             {
@@ -102,12 +102,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsSegmentExist(Segment s)
+        public static bool IsExist(Segment s)
         {
-            return GetSectorById(s.Segment_ID) == null ? false : true;
+            return GetById(s.Segment_ID) == null ? false : true;
         }
 
-        public static bool EditSegment(Segment ss)
+        public static bool Edit(Segment ss)
         {
             if (ss == null)
             {
@@ -129,7 +129,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteSegment(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

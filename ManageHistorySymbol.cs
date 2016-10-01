@@ -54,7 +54,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<HistorySymbol> GetAllHistorySymbols()
+        public static List<HistorySymbol> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -62,7 +62,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddHistorySymbol(HistorySymbol hs)
+        public static bool Insert(HistorySymbol hs)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace DataTransaction
             }
         }
 
-        public static HistorySymbol GetHistorySymbolById(int? id)
+        public static HistorySymbol GetById(int? id)
         {
             if (id == null)
             {
@@ -102,12 +102,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsHistorySymbolExist(HistorySymbol hs)
+        public static bool IsExist(HistorySymbol hs)
         {
-            return GetHistorySymbolById(hs.History_Symbol_ID) == null ? false : true;
+            return GetById(hs.History_Symbol_ID) == null ? false : true;
         }
 
-        public static bool EditHistorySymbol(HistorySymbol hs)
+        public static bool Edit(HistorySymbol hs)
         {
             if (hs == null)
             {
@@ -129,7 +129,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeleteHistorySymbol(int ID)
+        public static bool Delete(int ID)
         {
             try
             {

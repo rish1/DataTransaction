@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<PlatformPermission> GetAllPlatformPermissions()
+        public static List<PlatformPermission> GetAll()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool AddPlatformPermission(PlatformPermission pp)
+        public static bool Insert(PlatformPermission pp)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static PlatformPermission GetPlatformPermissionById(int? id)
+        public static PlatformPermission GetById(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public static bool IsPlatformPermissionExist(PlatformPermission pp)
+        public static bool IsExist(PlatformPermission pp)
         {
-            return GetPlatformPermissionById(pp.Platform_Permission_ID) == null ? false : true;
+            return GetById(pp.Platform_Permission_ID) == null ? false : true;
         }
 
-        public static bool EditPlatformPermission(PlatformPermission pp)
+        public static bool Edit(PlatformPermission pp)
         {
             if (pp == null)
             {
@@ -128,7 +128,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool DeletePlatformPermission(int ID)
+        public static bool Delete(int ID)
         {
             try
             {
