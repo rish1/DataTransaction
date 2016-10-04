@@ -53,7 +53,7 @@ namespace DataTransaction
                 return null;
             }
         }
-        public static List<AppModule> GetAll()
+        public static List<AppModule> GetAllAppModule()
         {
             using (ef_manager_newEntities db = new ef_manager_newEntities())
             {
@@ -61,7 +61,7 @@ namespace DataTransaction
             }
         }
 
-        public static bool Insert(AppModule appmodule)
+        public static bool InsertAppModule(AppModule appmodule)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace DataTransaction
             }
         }
 
-        public static AppModule GetByID(int? id)
+        public static AppModule GetAppModuleByID(int? id)
         {
             if (id == null)
             {
@@ -101,12 +101,12 @@ namespace DataTransaction
             }
         }
 
-        public bool IsExist(AppModule a)
+        public bool IsExistAppModule(AppModule a)
         {
-            return GetByID(a.Module_ID) == null ? false : true;
+            return GetAppModuleByID(a.Module_ID) == null ? false : true;
         }
 
-        public static bool Edit(AppModule appmodule)
+        public static bool EditAppModule(AppModule appmodule)
         {
             if (appmodule == null)
             {
@@ -127,7 +127,7 @@ namespace DataTransaction
                 return false;
             }
         }
-        public static bool Delete(int ID)
+        public static bool DeleteAppModule(int ID)
         {
             try
             {
