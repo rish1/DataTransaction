@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Commission_Types)jsonHub.Deserialize<T>(Data);
+                Commission_Types a = (Commission_Types)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Commission_Types>)jsonHub.Deserialize<T>(data);
+                List<Commission_Types> L = (List<Commission_Types>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Commission_Types>)
                 {
                     return (String)jsonHub.Serialize((List<Commission_Types>)o);

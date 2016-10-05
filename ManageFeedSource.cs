@@ -14,7 +14,8 @@ namespace DataTransaction
         {
             try
             {
-                return (FeedSource)jsonHub.Deserialize<T>(Data);
+                FeedSource a = (FeedSource)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -27,7 +28,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<FeedSource>)jsonHub.Deserialize<T>(data);
+                List<FeedSource> L = (List<FeedSource>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -39,6 +41,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<FeedSource>)
                 {
                     return (String)jsonHub.Serialize((List<FeedSource>)o);

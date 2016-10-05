@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Base_Symbol)jsonHub.Deserialize<T>(Data);
+                Base_Symbol a = (Base_Symbol)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Base_Symbol>)jsonHub.Deserialize<T>(data);
+                List<Base_Symbol> L = (List<Base_Symbol>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Base_Symbol>)
                 {
                     return (String)jsonHub.Serialize((List<Base_Symbol>)o);

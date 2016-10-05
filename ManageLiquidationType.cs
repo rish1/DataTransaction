@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Liquidation_Types)jsonHub.Deserialize<T>(Data);
+                Liquidation_Types a = (Liquidation_Types)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Liquidation_Types>)jsonHub.Deserialize<T>(data);
+                List<Liquidation_Types> L = (List<Liquidation_Types>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Liquidation_Types>)
                 {
                     return (String)jsonHub.Serialize((List<Liquidation_Types>)o);

@@ -9,7 +9,7 @@ namespace DataTransaction
     class ManageBalance
     {
         ef_manager_newEntities db = new ef_manager_newEntities();
-        public Boolean addBalance(Balance bal)
+        public bool addBalance(Balance bal)
         {
             try
             {

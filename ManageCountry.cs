@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Country)jsonHub.Deserialize<T>(Data);
+                Country a = (Country)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Country>)jsonHub.Deserialize<T>(data);
+                List<Country> L = (List<Country>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Country>)
                 {
                     return (String)jsonHub.Serialize((List<Country>)o);

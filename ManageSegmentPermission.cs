@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Segment_Permissions)jsonHub.Deserialize<T>(Data);
+                Segment_Permissions a = (Segment_Permissions)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Segment_Permissions>)jsonHub.Deserialize<T>(data);
+                List<Segment_Permissions> L = (List<Segment_Permissions>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Segment_Permissions>)
                 {
                     return (String)jsonHub.Serialize((List<Segment_Permissions>)o);

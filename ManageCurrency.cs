@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Currency)jsonHub.Deserialize<T>(Data);
+                Currency a = (Currency)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Currency>)jsonHub.Deserialize<T>(data);
+                List<Currency> L = (List<Currency>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Currency>)
                 {
                     return (String)jsonHub.Serialize((List<Currency>)o);

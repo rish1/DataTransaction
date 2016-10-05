@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (DOMSymbol)jsonHub.Deserialize<T>(Data);
+                DOMSymbol a = (DOMSymbol)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<DOMSymbol>)jsonHub.Deserialize<T>(data);
+                List<DOMSymbol> L = (List<DOMSymbol>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<DOMSymbol>)
                 {
                     return (String)jsonHub.Serialize((List<DOMSymbol>)o);

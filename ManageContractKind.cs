@@ -14,7 +14,8 @@ namespace DataTransaction
         {
             try
             {
-                return (ContractKind)jsonHub.Deserialize<T>(Data);
+                ContractKind a = (ContractKind)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -27,7 +28,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<ContractKind>)jsonHub.Deserialize<T>(data);
+                List<ContractKind> L = (List<ContractKind>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -39,6 +41,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<ContractKind>)
                 {
                     return (String)jsonHub.Serialize((List<ContractKind>)o);

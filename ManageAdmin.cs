@@ -14,13 +14,14 @@ namespace DataTransaction
 
     public class ManageAdmin
     {
-         
+
         //ef_manager_newEntities db = new ef_manager_newEntities();
         public static Admin Deserialize<T>(string Data)
         {
             try
             {
-                return (Admin)jsonHub.Deserialize<T>(Data);
+                Admin a = (Admin)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -33,7 +34,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Admin>)jsonHub.Deserialize<T>(data);
+                List<Admin> L = (List<Admin>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -45,6 +47,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Admin>)
                 {
                     return (String)jsonHub.Serialize((List<Admin>)o);

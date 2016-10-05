@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Margin_Types)jsonHub.Deserialize<T>(Data);
+                Margin_Types a = (Margin_Types)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Margin_Types>)jsonHub.Deserialize<T>(data);
+                List<Margin_Types> L = (List<Margin_Types>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Margin_Types>)
                 {
                     return (String)jsonHub.Serialize((List<Margin_Types>)o);

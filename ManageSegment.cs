@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (Segment)jsonHub.Deserialize<T>(Data);
+                Segment a = (Segment)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<Segment>)jsonHub.Deserialize<T>(data);
+                List<Segment> L = (List<Segment>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<Segment>)
                 {
                     return (String)jsonHub.Serialize((List<Segment>)o);

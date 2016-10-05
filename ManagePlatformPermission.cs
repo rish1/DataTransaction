@@ -13,7 +13,8 @@ namespace DataTransaction
         {
             try
             {
-                return (PlatformPermission)jsonHub.Deserialize<T>(Data);
+                PlatformPermission a = (PlatformPermission)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -26,7 +27,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<PlatformPermission>)jsonHub.Deserialize<T>(data);
+                List<PlatformPermission> L = (List<PlatformPermission>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -38,6 +40,7 @@ namespace DataTransaction
         {
             try
             {
+                if (o == null) { return null; }
                 if (o is List<PlatformPermission>)
                 {
                     return (String)jsonHub.Serialize((List<PlatformPermission>)o);

@@ -9,19 +9,13 @@ namespace DataTransaction
 {
     public class ManageCity
     {
-        //  ef_manager_newEntities db = new ef_manager_newEntities();
-        //public static string GetallCities()
-        //{
-        //    using (ef_manager_newEntities db = new ef_manager_newEntities())
-        //    {
-        //        return jsonHub.Serialize(db.Cities.ToList());
-        //    }
-        //}
+
         public static City Deserialize<T>(string Data)
         {
             try
             {
-                return (City)jsonHub.Deserialize<T>(Data);
+                City a = (City)jsonHub.Deserialize<T>(Data);
+                return a == null ? null : a;
             }
             catch (Exception e)
             {
@@ -34,7 +28,8 @@ namespace DataTransaction
         {
             try
             {
-                return (List<City>)jsonHub.Deserialize<T>(data);
+                List<City> L = (List<City>)jsonHub.Deserialize<T>(data);
+                return L == null ? null : L;
             }
             catch (Exception e)
             {
@@ -46,9 +41,11 @@ namespace DataTransaction
         {
             try
             {
-                if (o is List<City>){
+                if (o == null) { return null; }
+                if (o is List<City>)
+                {
                     return (String)jsonHub.Serialize((List<City>)o);
-            }
+                }
                 else
                 {
                     return (string)jsonHub.Serialize((City)o);
