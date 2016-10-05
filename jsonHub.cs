@@ -11,14 +11,32 @@ namespace DataTransaction
     {
         public static string Serialize(object o)
         {
-            return JsonConvert.SerializeObject(o, Formatting.Indented, new JsonSerializerSettings
-            { ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
+            try
+            {
+                return JsonConvert.SerializeObject(o, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
         }
 
         public static object Deserialize<T>(String s)
         {
-            return JsonConvert.DeserializeObject<T>(s);
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(s);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+                return null;
+            }
         }   
 
     }
