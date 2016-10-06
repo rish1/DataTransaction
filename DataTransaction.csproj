@@ -167,6 +167,7 @@
     <Compile Include="ManageExecutionType.cs" />
     <Compile Include="ManageFeedSource.cs" />
     <Compile Include="ManageFeedSymbol.cs" />
+    <Compile Include="ManageFrozenBalance.cs" />
     <Compile Include="ManageHistoryOrderBook.cs" />
     <Compile Include="ManageHistorySymbol.cs" />
     <Compile Include="ManageHistoryTransaction.cs" />

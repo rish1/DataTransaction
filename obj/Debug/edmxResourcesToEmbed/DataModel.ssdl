@@ -128,10 +128,9 @@
     <Property Name="Exchange_Code" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Exchange_Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Country_ID" Type="int" Nullable="false" />
-    <Property Name="Created_By" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar(max)" />
     <Property Name="URL" Type="varchar" MaxLength="100" />
-    <Property Name="Enabled" Type="tinyint" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ExecutionTypes">
     <Key>

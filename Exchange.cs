@@ -25,10 +25,9 @@ namespace DataTransaction
         public string Exchange_Code { get; set; }
         public string Exchange_Name { get; set; }
         public int Country_ID { get; set; }
-        public int Created_By { get; set; }
         public string Description { get; set; }
         public string URL { get; set; }
-        public byte Enabled { get; set; }
+        public bool Enabled { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Base_Symbol> Base_Symbol { get; set; }

@@ -163,7 +163,6 @@
           <ScalarProperty Name="Enabled" ColumnName="Enabled" />
           <ScalarProperty Name="URL" ColumnName="URL" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
           <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
           <ScalarProperty Name="Exchange_Name" ColumnName="Exchange_Name" />
           <ScalarProperty Name="Exchange_Code" ColumnName="Exchange_Code" />

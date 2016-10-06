@@ -477,10 +477,9 @@
     <Property Name="Exchange_Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="Exchange_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Country_ID" Type="Int32" Nullable="false" />
-    <Property Name="Created_By" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Enabled" Type="Byte" Nullable="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Exchange" FromRole="Exchange" ToRole="Base_Symbol" />
     <NavigationProperty Name="Country" Relationship="ef_manager_newModel.FK_Exchange_Country" FromRole="Exchange" ToRole="Country" />
     <NavigationProperty Name="Segments" Relationship="ef_manager_newModel.FK_Segment_Exchange" FromRole="Exchange" ToRole="Segment" />
