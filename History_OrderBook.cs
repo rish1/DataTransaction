@@ -30,8 +30,13 @@ namespace DataTransaction
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public int Order_Status_ID { get; set; }
-        public int Original_Order_ID { get; set; }
+        public Nullable<int> Original_Order_ID { get; set; }
+        public bool ISCF { get; set; }
+        public System.DateTime InsertDate { get; set; }
+        public System.DateTime UpdateDate { get; set; }
         public string Comments { get; set; }
+        public decimal CFRate { get; set; }
+        public int NewOrderID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<History_OrderBook> History_OrderBook1 { get; set; }

@@ -219,7 +219,12 @@
     <EntitySetMapping Name="History_OrderBook">
       <EntityTypeMapping TypeName="ef_manager_newModel.History_OrderBook">
         <MappingFragment StoreEntitySet="History_OrderBook">
+          <ScalarProperty Name="NewOrderID" ColumnName="NewOrderID" />
+          <ScalarProperty Name="CFRate" ColumnName="CFRate" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="ISCF" ColumnName="ISCF" />
           <ScalarProperty Name="Original_Order_ID" ColumnName="Original_Order_ID" />
           <ScalarProperty Name="Order_Status_ID" ColumnName="Order_Status_ID" />
           <ScalarProperty Name="Price" ColumnName="Price" />

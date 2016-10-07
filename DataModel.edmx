@@ -191,8 +191,13 @@
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="27" Scale="10" Nullable="false" />
           <Property Name="Order_Status_ID" Type="int" Nullable="false" />
-          <Property Name="Original_Order_ID" Type="int" Nullable="false" />
+          <Property Name="Original_Order_ID" Type="int" />
+          <Property Name="ISCF" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
           <Property Name="Comments" Type="varchar(max)" />
+          <Property Name="CFRate" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="NewOrderID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="History_Source">
           <Key>
@@ -693,7 +698,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_History_OrderBook_History_OrderBook">
-          <End Role="History_OrderBook" Type="Self.History_OrderBook" Multiplicity="1" />
+          <End Role="History_OrderBook" Type="Self.History_OrderBook" Multiplicity="0..1" />
           <End Role="History_OrderBook1" Type="Self.History_OrderBook" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="History_OrderBook">
@@ -2085,8 +2090,13 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="27" Scale="10" />
           <Property Name="Order_Status_ID" Type="Int32" Nullable="false" />
-          <Property Name="Original_Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="Original_Order_ID" Type="Int32" />
+          <Property Name="ISCF" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CFRate" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="NewOrderID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="History_OrderBook1" Relationship="ef_manager_newModel.FK_History_OrderBook_History_OrderBook" FromRole="History_OrderBook" ToRole="History_OrderBook1" />
           <NavigationProperty Name="History_OrderBook2" Relationship="ef_manager_newModel.FK_History_OrderBook_History_OrderBook" FromRole="History_OrderBook1" ToRole="History_OrderBook" />
           <NavigationProperty Name="Order_Status" Relationship="ef_manager_newModel.FK_History_OrderBook_Order_Status" FromRole="History_OrderBook" ToRole="Order_Status" />
@@ -2798,7 +2808,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_History_OrderBook_History_OrderBook">
-          <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="1" />
+          <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook" Multiplicity="0..1" />
           <End Type="ef_manager_newModel.History_OrderBook" Role="History_OrderBook1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="History_OrderBook">
@@ -3425,7 +3435,12 @@
           <EntitySetMapping Name="History_OrderBook">
             <EntityTypeMapping TypeName="ef_manager_newModel.History_OrderBook">
               <MappingFragment StoreEntitySet="History_OrderBook">
+                <ScalarProperty Name="NewOrderID" ColumnName="NewOrderID" />
+                <ScalarProperty Name="CFRate" ColumnName="CFRate" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="ISCF" ColumnName="ISCF" />
                 <ScalarProperty Name="Original_Order_ID" ColumnName="Original_Order_ID" />
                 <ScalarProperty Name="Order_Status_ID" ColumnName="Order_Status_ID" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

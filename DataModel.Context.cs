@@ -20,6 +20,7 @@ namespace DataTransaction
         public ef_manager_newEntities()
             : base("name=ef_manager_newEntities")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

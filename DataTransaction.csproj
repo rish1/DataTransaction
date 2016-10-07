@@ -110,7 +110,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DBManage.cs" />
     <Compile Include="DOMSource.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
