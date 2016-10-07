@@ -551,7 +551,7 @@
     <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CFRate" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
-    <Property Name="NewOrderID" Type="Int32" Nullable="false" />
+    <Property Name="NewOrderID" Type="Int32" />
     <NavigationProperty Name="History_OrderBook1" Relationship="ef_manager_newModel.FK_History_OrderBook_History_OrderBook" FromRole="History_OrderBook" ToRole="History_OrderBook1" />
     <NavigationProperty Name="History_OrderBook2" Relationship="ef_manager_newModel.FK_History_OrderBook_History_OrderBook" FromRole="History_OrderBook1" ToRole="History_OrderBook" />
     <NavigationProperty Name="Order_Status" Relationship="ef_manager_newModel.FK_History_OrderBook_Order_Status" FromRole="History_OrderBook" ToRole="Order_Status" />
