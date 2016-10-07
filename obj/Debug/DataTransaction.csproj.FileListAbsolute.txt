@@ -11,3 +11,4 @@ C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransacti
 C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransaction\bin\Debug\Newtonsoft.Json.xml
 C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransaction\obj\Debug\DataTransaction.dll
 C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransaction\obj\Debug\DataTransaction.pdb
+C:\Users\E-5\documents\visual studio 2015\Projects\DataTransaction\DataTransaction\obj\Debug\DataTransaction.csprojResolveAssemblyReference.cache

@@ -41,13 +41,13 @@ namespace DataTransaction
         public int Currency_ID { get; set; }
         public int Balance_Type { get; set; }
         public Nullable<int> Office_ID { get; set; }
-        public byte Enabled { get; set; }
-        public byte EnableLiquidation { get; set; }
+        public bool Enabled { get; set; }
+        public bool EnableLiquidation { get; set; }
         public Nullable<int> Liquidation_Type_ID { get; set; }
         public Nullable<decimal> LiquidateLevel { get; set; }
         public int ExecutionType { get; set; }
-        public byte MarginOnLimits { get; set; }
-        public byte UseCurrentPLForMargin { get; set; }
+        public bool MarginOnLimits { get; set; }
+        public bool UseCurrentPLForMargin { get; set; }
     
         public virtual Balance Balance { get; set; }
         public virtual Balance_Types Balance_Types { get; set; }

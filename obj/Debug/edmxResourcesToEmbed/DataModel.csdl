@@ -883,13 +883,13 @@
     <Property Name="Currency_ID" Type="Int32" Nullable="false" />
     <Property Name="Balance_Type" Type="Int32" Nullable="false" />
     <Property Name="Office_ID" Type="Int32" />
-    <Property Name="Enabled" Type="Byte" Nullable="false" />
-    <Property Name="EnableLiquidation" Type="Byte" Nullable="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="EnableLiquidation" Type="Boolean" Nullable="false" />
     <Property Name="Liquidation_Type_ID" Type="Int32" />
     <Property Name="LiquidateLevel" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="ExecutionType" Type="Int32" Nullable="false" />
-    <Property Name="MarginOnLimits" Type="Byte" Nullable="false" />
-    <Property Name="UseCurrentPLForMargin" Type="Byte" Nullable="false" />
+    <Property Name="MarginOnLimits" Type="Boolean" Nullable="false" />
+    <Property Name="UseCurrentPLForMargin" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Balance" Relationship="ef_manager_newModel.FK_Balance_Users" FromRole="User" ToRole="Balance" />
     <NavigationProperty Name="Balance_Types" Relationship="ef_manager_newModel.FK_Users_Balance_Types" FromRole="User" ToRole="Balance_Types" />
     <NavigationProperty Name="City" Relationship="ef_manager_newModel.FK_Users_City" FromRole="User" ToRole="City" />

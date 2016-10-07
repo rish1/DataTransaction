@@ -454,13 +454,13 @@
     <Property Name="Currency_ID" Type="int" Nullable="false" />
     <Property Name="Balance_Type" Type="int" Nullable="false" />
     <Property Name="Office_ID" Type="int" />
-    <Property Name="Enabled" Type="tinyint" Nullable="false" />
-    <Property Name="EnableLiquidation" Type="tinyint" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="EnableLiquidation" Type="bit" Nullable="false" />
     <Property Name="Liquidation_Type_ID" Type="int" />
     <Property Name="LiquidateLevel" Type="decimal" Precision="18" Scale="2" />
     <Property Name="ExecutionType" Type="int" Nullable="false" />
-    <Property Name="MarginOnLimits" Type="tinyint" Nullable="false" />
-    <Property Name="UseCurrentPLForMargin" Type="tinyint" Nullable="false" />
+    <Property Name="MarginOnLimits" Type="bit" Nullable="false" />
+    <Property Name="UseCurrentPLForMargin" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_Admins_Roles">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
