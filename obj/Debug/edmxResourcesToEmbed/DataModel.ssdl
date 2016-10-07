@@ -191,7 +191,7 @@
     <Property Name="InsertDate" Type="datetime" Nullable="false" />
     <Property Name="UpdateDate" Type="datetime" Nullable="false" />
     <Property Name="Comments" Type="varchar(max)" />
-    <Property Name="CFRate" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="CFRate" Type="decimal" Precision="18" Scale="5" />
     <Property Name="NewOrderID" Type="int" />
   </EntityType>
   <EntityType Name="History_Source">

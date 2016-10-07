@@ -35,7 +35,7 @@ namespace DataTransaction
         public System.DateTime InsertDate { get; set; }
         public System.DateTime UpdateDate { get; set; }
         public string Comments { get; set; }
-        public decimal CFRate { get; set; }
+        public Nullable<decimal> CFRate { get; set; }
         public Nullable<int> NewOrderID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
