@@ -368,7 +368,7 @@
     <Property Name="Segment" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Exchange_ID" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="500" />
-    <Property Name="Enabled" Type="tinyint" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Segment_Permissions">
     <Key>

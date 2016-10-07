@@ -772,7 +772,7 @@
     <Property Name="Segment1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Exchange_ID" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Enabled" Type="Byte" Nullable="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Balances" Relationship="ef_manager_newModel.FK_Balance_Segment" FromRole="Segment" ToRole="Balance" />
     <NavigationProperty Name="Base_Symbol" Relationship="ef_manager_newModel.FK_Base_Symbol_Segment" FromRole="Segment" ToRole="Base_Symbol" />
     <NavigationProperty Name="Exchange" Relationship="ef_manager_newModel.FK_Segment_Exchange" FromRole="Segment" ToRole="Exchange" />

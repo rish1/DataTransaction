@@ -27,7 +27,7 @@ namespace DataTransaction
         public string Segment1 { get; set; }
         public int Exchange_ID { get; set; }
         public string Description { get; set; }
-        public byte Enabled { get; set; }
+        public bool Enabled { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Balance> Balances { get; set; }
